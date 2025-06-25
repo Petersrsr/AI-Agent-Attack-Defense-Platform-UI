@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东海AI Agent动态攻防推演靶场平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container container-full-width">
+        <header class="header">
+            <div class="logo"><strong>东海AI Agent靶场</strong></div>
+            <div class="breadcrumbs">场景管理 / 场景绘制</div>
+            <div class="user-info">
+                <span>🔍</span>
+                <span>❔</span>
+                <span>🔔</span>
+                <div class="user-profile">
+                    <span class="avatar"></span>
+                    <span class="username">admin</span>
+                </div>
+            </div>
+        </header>
+        <div class="main-container">
+            <nav class="sidebar">
+                 <ul>
+                    <li><a href="monitoring.html">📖 监控面板</a></li>
+                    <li class="has-submenu"><a href="training.html">🎓 实训教学</a></li>
+                    <li class="has-submenu"><a href="individual_training.html">🎯 单兵训练</a></li>
+                    <li class="has-submenu"><a href="competition.html">⚔️ 攻防竞技</a></li>
+                    <li class="has-submenu"><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
+                    <li class="has-submenu"><a href="target_management.html">🕹️ 靶标管理</a></li>
+                    <li class="active has-submenu">
+                        <a href="index.html">🌐 场景管理</a>
+                        <ul class="submenu">
+                            <li class="active-submenu"><a href="index.html">- 场景绘制</a></li>
+                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="probe_management.html">📡 探针管理</a></li>
+                    <li><a href="system_management.html">⚙️ 系统管理</a></li>
+                    <li><a href="system_log.html">📄 系统日志</a></li>
+                </ul>
+            </nav>
+            <div class="content-panel">
+                <div class="content-header">
+                    <div class="tabs">
+                        <button class="tab-button active">首页</button>
+                        <button class="tab-button">场景绘制</button>
+                    </div>
+                </div>
+                <div class="content-body">
+                    <div class="three-column-layout">
+                        <div class="component-palette">
+                            <div class="palette-group">
+                                <p>AISafe</p>
+                                <div class="palette-items">
+                                    <div class="palette-item"><span></span> 态势大屏</div>
+                                    <div class="palette-item"><span></span> BAS</div>
+                                    <div class="palette-item"><span></span> 提权器</div>
+                                </div>
+                            </div>
+                             <div class="palette-group">
+                                <p>靶标</p>
+                                <div class="palette-items">
+                                    <div class="palette-item"><span></span> 终端</div>
+                                    <div class="palette-item"><span></span> 虚拟机</div>
+                                </div>
+                            </div>
+                            <div class="palette-group">
+                                <p>网络设备</p>
+                                <div class="palette-items">
+                                   <div class="palette-item"><span></span> 路由器</div>
+                                   <div class="palette-item"><span></span> 二层交换机</div>
+                                   <div class="palette-item"><span></span> 三层交换机</div>
+                                </div>
+                            </div>
+                            <div class="palette-group">
+                                <p>虚拟安全</p>
+                                <div class="palette-items">
+                                   <div class="palette-item"><span></span> IPS</div>
+                                   <div class="palette-item"><span></span> IDS</div>
+                                   <div class="palette-item"><span></span> WAF</div>
+                                </div>
+                            </div>
+                             <div class="palette-group">
+                                <p>防火墙</p>
+                            </div>
+                            <div class="palette-group">
+                                <p>物理设备</p>
+                                 <div class="palette-items">
+                                   <div class="palette-item"><span></span> 物理防火墙</div>
+                                   <div class="palette-item"><span></span> 物理主机</div>
+                                   <div class="palette-item"><span></span> 物理WAF</div>
+                                </div>
+                            </div>
+                        </div>
+                        <main class="canvas-wrapper">
+                            <div class="canvas-toolbar">
+                                <div class="toolbar-group">
+                                    <button class="toolbar-button" title="选择/移动 (V)">🖐️</button>
+                                </div>
+                                <div class="toolbar-group">
+                                    <button class="toolbar-button" title="放大 (+)">➕</button>
+                                    <button class="toolbar-button" title="缩小 (-)">➖</button>
+                                </div>
+                                <div class="toolbar-group">
+                                    <button class="toolbar-button" title="撤销 (Ctrl+Z)">↩️</button>
+                                    <button class="toolbar-button" title="重做 (Ctrl+Y)">↪️</button>
+                                </div>
+                                <div class="toolbar-group">
+                                    <button class="toolbar-button" title="删除 (Del)">🗑️</button>
+                                </div>
+                            </div>
+                            <div class="canvas" id="canvas">
+                               <svg width="100%" height="100%" viewBox="0 0 1200 600" style="background-color: #fcfcfc;">
+                                    <defs>
+                                        <!-- Arrow marker for connection lines -->
+                                        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#595959"></path>
+                                        </marker>
+                                        <!-- Node styles -->
+                                        <style>
+                                            .node rect { stroke: #bfbfbf; stroke-width: 1px; }
+                                            .node text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 14px; fill: #262626; pointer-events: none; }
+                                            .node .icon { font-size: 24px; }
+                                            
+                                            .node-attacker rect { fill: #fff1f0; stroke: #ffccc7; }
+                                            .node-firewall rect { fill: #e6f7ff; stroke: #91d5ff; }
+                                            .node-server rect { fill: #f6ffed; stroke: #b7eb8f; }
+                                            .node-switch rect { fill: #fafafa; stroke: #d9d9d9; }
+                                            .node-db rect { fill: #fff0f6; stroke: #ffadd2; }
+                                            .node-user rect { fill: #fffbe6; stroke: #ffe58f; }
+
+                                            .edge { stroke: #595959; stroke-width: 1.5px; fill: none; }
+                                            
+                                            .zone { fill: rgba(24, 144, 255, 0.05); stroke: rgba(24, 144, 255, 0.3); stroke-width: 2px; stroke-dasharray: 8, 4; }
+                                            .zone-label { font-size: 16px; font-weight: bold; fill: #1890ff; text-anchor: middle; }
+                                        </style>
+                                    </defs>
+
+                                    <!-- Network Zones -->
+                                    <rect x="300" y="20" width="350" height="560" rx="15" class="zone"></rect>
+                                    <text x="475" y="50" class="zone-label">DMZ (非军事区)</text>
+                                    <rect x="700" y="20" width="480" height="560" rx="15" class="zone"></rect>
+                                    <text x="940" y="50" class="zone-label">Internal Network (内部网络)</text>
+
+                                    <!-- Nodes -->
+                                    <!-- Attacker -->
+                                    <g class="node node-attacker" transform="translate(100, 270)">
+                                        <rect width="150" height="60" rx="8"></rect>
+                                        <text x="75" y="38" text-anchor="middle"><tspan class="icon">😈</tspan> Attacker</text>
+                                    </g>
+
+                                    <!-- DMZ -->
+                                    <g class="node node-firewall" transform="translate(425, 270)">
+                                        <rect width="150" height="60" rx="8"></rect>
+                                        <text x="75" y="38" text-anchor="middle"><tspan class="icon">🧱</tspan> Firewall</text>
+                                    </g>
+                                    <g class="node node-server" transform="translate(425, 120)">
+                                        <rect width="150" height="60" rx="8"></rect>
+                                        <text x="75" y="38" text-anchor="middle"><tspan class="icon">🌐</tspan> Web Server</text>
+                                    </g>
+
+                                    <!-- Internal Network -->
+                                    <g class="node node-switch" transform="translate(800, 270)">
+                                        <rect width="150" height="60" rx="8"></rect>
+                                        <text x="75" y="38" text-anchor="middle"><tspan class="icon">🔄</tspan> Core Switch</text>
+                                    </g>
+                                    <g class="node node-db" transform="translate(1000, 120)">
+                                        <rect width="150" height="60" rx="8"></rect>
+                                        <text x="75" y="38" text-anchor="middle"><tspan class="icon">💾</tspan> Database</text>
+                                    </g>
+                                    <g class="node node-server" transform="translate(1000, 270)">
+                                        <rect width="150" height="60" rx="8"></rect>
+                                        <text x="75" y="38" text-anchor="middle"><tspan class="icon">⚙️</tspan> App Server</text>
+                                    </g>
+                                    <g class="node node-user" transform="translate(1000, 420)">
+                                        <rect width="150" height="60" rx="8"></rect>
+                                        <text x="75" y="38" text-anchor="middle"><tspan class="icon">👨‍💻</tspan> Internal User</text>
+                                    </g>
+
+                                    <!-- Edges -->
+                                    <path class="edge" d="M 250 300 H 425" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 500 270 V 180 H 425" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 575 300 H 800" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 875 300 H 1000" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 875 270 V 180 H 1000" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 875 330 V 420 H 1000" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 575 150 C 675 150, 675 270, 800 270" stroke-dasharray="5,5" marker-end="url(#arrow)"></path>
+                               </svg>
+                            </div>
+                             <div class="canvas-footer">
+                                <button class="btn btn-secondary">上一步</button>
+                                <button class="btn btn-primary">保存&测试</button>
+                            </div>
+                        </main>
+                        <aside class="right-sidebar">
+                            <div class="panel-header">
+                                <h5>节点设置</h5>
+                                <span>🔄</span>
+                            </div>
+                            <div class="node-details">
+                                <div class="detail-item">
+                                    <label>设备名称:</label>
+                                    <span>防火墙11-1</span>
+                                </div>
+                                <div class="detail-item">
+                                    <label>关联靶标:</label>
+                                    <span>firewall.template.fw</span>
+                                </div>
+                                 <div class="detail-item">
+                                    <label>回网口:</label>
+                                    <span>6</span>
+                                </div>
+                                <div class="detail-item">
+                                    <label>端口列表:</label>
+                                </div>
+                                <ul class="port-list">
+                                    <li><div class="port-name">G0</div><div class="port-ip">[172.16.12.12]</div> <div class="port-edit">✏️</div></li>
+                                    <li><div class="port-name">G1</div><div class="port-ip">[192.168.12.1]</div> <div class="port-edit">✏️</div></li>
+                                    <li><div class="port-name">G2</div><div class="port-ip">[192.168.13.1]</div> <div class="port-edit">✏️</div></li>
+                                    <li><div class="port-name">G3</div><div class="port-ip">[192.168.14.1]</div> <div class="port-edit">✏️</div></li>
+                                    <li><div class="port-name">G4</div><div class="port-ip">[192.168.15.1]</div> <div class="port-edit">✏️</div></li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html> 

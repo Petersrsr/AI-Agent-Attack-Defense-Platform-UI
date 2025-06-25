@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>靶标管理 - 东海AI Agent动态攻防推演靶场平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container container-full-width">
+        <header class="header">
+            <div class="logo"><strong>东海AI Agent靶场</strong></div>
+            <div class="breadcrumbs">靶标管理</div>
+            <div class="user-info">
+                <span>🔍</span>
+                <span>❔</span>
+                <span>🔔</span>
+                <div class="user-profile">
+                    <span class="avatar"></span>
+                    <span class="username">admin</span>
+                </div>
+            </div>
+        </header>
+        <div class="main-container">
+            <nav class="sidebar">
+                 <ul>
+                    <li><a href="monitoring.html">📖 监控面板</a></li>
+                    <li><a href="training.html">🎓 实训教学</a></li>
+                    <li><a href="individual_training.html">🎯 单兵训练</a></li>
+                    <li><a href="competition.html">⚔️ 攻防竞技</a></li>
+                    <li><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
+                    <li class="active"><a href="target_management.html">🕹️ 靶标管理</a></li>
+                    <li class="has-submenu">
+                        <a href="index.html">🌐 场景管理</a>
+                        <ul class="submenu">
+                            <li><a href="index.html">- 场景绘制</a></li>
+                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="probe_management.html">📡 探针管理</a></li>
+                    <li><a href="system_management.html">⚙️ 系统管理</a></li>
+                    <li><a href="system_log.html">📄 系统日志</a></li>
+                </ul>
+            </nav>
+            <div class="content-panel">
+                <div class="content-body target-management-grid" style="padding: 20px; overflow-y: auto;">
+                    <div class="widget table-container">
+                        <div class="table-toolbar">
+                            <button class="btn btn-primary">➕ 创建新靶标</button>
+                            <div class="search-bar">
+                                <input type="text" placeholder="搜索靶标名称、IP...">
+                                <button class="btn">搜索</button>
+                            </div>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>靶标名称</th>
+                                    <th>IP地址</th>
+                                    <th>操作系统</th>
+                                    <th>关联漏洞</th>
+                                    <th>状态</th>
+                                    <th>创建时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>WEB_Server_01</td>
+                                    <td>192.168.10.15</td>
+                                    <td>Ubuntu 20.04</td>
+                                    <td>Log4j2, Struts2</td>
+                                    <td><span class="status-dot online"></span> 在线</td>
+                                    <td>2024-05-21 10:00</td>
+                                    <td class="action-buttons">
+                                        <button class="btn-action">配置</button>
+                                        <button class="btn-action stop">停止</button>
+                                        <button class="btn-action delete">删除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DB_Server_Finance</td>
+                                    <td>192.168.12.30</td>
+                                    <td>Windows Server 2019</td>
+                                    <td>MS17-010</td>
+                                    <td><span class="status-dot online"></span> 在线</td>
+                                    <td>2024-05-20 14:30</td>
+                                    <td class="action-buttons">
+                                        <button class="btn-action">配置</button>
+                                        <button class="btn-action stop">停止</button>
+                                        <button class="btn-action delete">删除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Win7_Test_PC</td>
+                                    <td>192.168.10.25</td>
+                                    <td>Windows 7</td>
+                                    <td>-</td>
+                                    <td><span class="status-dot offline"></span> 离线</td>
+                                    <td>2024-05-19 09:15</td>
+                                    <td class="action-buttons">
+                                        <button class="btn-action">配置</button>
+                                        <button class="btn-action start">启动</button>
+                                        <button class="btn-action delete">删除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>AD_Controller</td>
+                                    <td>10.10.10.5</td>
+                                    <td>Windows Server 2012</td>
+                                    <td>Zerologon</td>
+                                     <td><span class="status-dot error"></span> 异常</td>
+                                    <td>2024-05-18 11:45</td>
+                                    <td class="action-buttons">
+                                        <button class="btn-action">配置</button>
+                                        <button class="btn-action stop">停止</button>
+                                        <button class="btn-action delete">删除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Mail_Exchange_Srv</td>
+                                    <td>10.10.10.22</td>
+                                    <td>Windows Server 2016</td>
+                                    <td>ProxyLogon, ProxyShell</td>
+                                    <td><span class="status-dot online"></span> 在线</td>
+                                    <td>2024-05-17 16:00</td>
+                                    <td class="action-buttons">
+                                        <button class="btn-action">配置</button>
+                                        <button class="btn-action stop">停止</button>
+                                        <button class="btn-action delete">删除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HR_Workstation</td>
+                                    <td>192.168.20.11</td>
+                                    <td>Windows 10</td>
+                                    <td>-</td>
+                                    <td><span class="status-dot offline"></span> 离线</td>
+                                    <td>2024-05-16 13:20</td>
+                                    <td class="action-buttons">
+                                        <button class="btn-action">配置</button>
+                                        <button class="btn-action start">启动</button>
+                                        <button class="btn-action delete">删除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Elasticsearch_Node</td>
+                                    <td>172.16.5.101</td>
+                                    <td>CentOS 7</td>
+                                    <td>CVE-2015-1427</td>
+                                    <td><span class="status-dot online"></span> 在线</td>
+                                    <td>2024-05-15 11:00</td>
+                                    <td class="action-buttons">
+                                        <button class="btn-action">配置</button>
+                                        <button class="btn-action stop">停止</button>
+                                        <button class="btn-action delete">删除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Dev_GitLab_Server</td>
+                                    <td>172.16.10.50</td>
+                                    <td>Ubuntu 18.04</td>
+                                    <td>CVE-2021-22205</td>
+                                    <td><span class="status-dot online"></span> 在线</td>
+                                    <td>2024-05-14 18:10</td>
+                                    <td class="action-buttons">
+                                        <button class="btn-action">配置</button>
+                                        <button class="btn-action stop">停止</button>
+                                        <button class="btn-action delete">删除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Linux_Jump_Host</td>
+                                    <td>10.0.0.1</td>
+                                    <td>Debian 10</td>
+                                    <td>-</td>
+                                    <td><span class="status-dot error"></span> 异常</td>
+                                    <td>2024-05-13 09:00</td>
+                                    <td class="action-buttons">
+                                        <button class="btn-action">配置</button>
+                                        <button class="btn-action stop">停止</button>
+                                        <button class="btn-action delete">删除</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="widget kpi-card">
+                        <h4>靶标总数</h4>
+                        <div class="kpi-value">2,450</div>
+                    </div>
+                    <div class="widget kpi-card">
+                        <h4>在线数量</h4>
+                        <div class="kpi-value">1,988</div>
+                    </div>
+                    <div class="widget kpi-card">
+                        <h4>离线数量</h4>
+                        <div class="kpi-value">462</div>
+                    </div>
+                    <div class="widget kpi-card">
+                        <h4>高危靶标</h4>
+                        <div class="kpi-value">157</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html> 

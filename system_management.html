@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统管理 - 东海AI Agent动态攻防推演靶场平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container container-full-width">
+        <header class="header">
+            <div class="logo"><strong>东海AI Agent靶场</strong></div>
+            <div class="breadcrumbs">系统管理</div>
+            <div class="user-info">
+                <span>🔍</span>
+                <span>❔</span>
+                <span>🔔</span>
+                <div class="user-profile">
+                    <span class="avatar"></span>
+                    <span class="username">admin</span>
+                </div>
+            </div>
+        </header>
+        <div class="main-container">
+            <nav class="sidebar">
+                 <ul>
+                    <li><a href="monitoring.html">📖 监控面板</a></li>
+                    <li><a href="training.html">🎓 实训教学</a></li>
+                    <li><a href="individual_training.html">🎯 单兵训练</a></li>
+                    <li><a href="competition.html">⚔️ 攻防竞技</a></li>
+                    <li><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
+                    <li><a href="target_management.html">🕹️ 靶标管理</a></li>
+                    <li class="has-submenu">
+                        <a href="index.html">🌐 场景管理</a>
+                        <ul class="submenu">
+                            <li><a href="index.html">- 场景绘制</a></li>
+                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="probe_management.html">📡 探针管理</a></li>
+                    <li class="active"><a href="system_management.html">⚙️ 系统管理</a></li>
+                    <li><a href="system_log.html">📄 系统日志</a></li>
+                </ul>
+            </nav>
+            <div class="content-panel settings-layout">
+                <aside class="settings-sidebar">
+                    <ul>
+                        <li class="active"><a href="#basic-settings">基础设置</a></li>
+                        <li><a href="#user-management">用户管理</a></li>
+                        <li><a href="#role-management">角色权限</a></li>
+                        <li><a href="#license-management">授权管理</a></li>
+                        <li><a href="#mail-service">邮件服务</a></li>
+                        <li><a href="#backup-restore">备份与恢复</a></li>
+                    </ul>
+                </aside>
+                <main class="settings-content">
+                    <div id="basic-settings" class="settings-pane active">
+                        <h2>基础设置</h2>
+                        <div class="settings-group">
+                            <h4>系统信息</h4>
+                            <dl class="info-list">
+                                <dt>平台版本:</dt><dd>v2.5.1</dd>
+                                <dt>部署时间:</dt><dd>2024-01-15 10:00:00</dd>
+                                <dt>授权到期日:</dt><dd>2025-01-15</dd>
+                            </dl>
+                        </div>
+                        <div class="settings-group">
+                            <h4>基础配置</h4>
+                            <form class="settings-form">
+                                <div class="form-item">
+                                    <label for="platform-name">平台名称</label>
+                                    <input type="text" id="platform-name" value="东海AI Agent动态攻防推演靶场平台">
+                                </div>
+                                <div class="form-item">
+                                    <label for="platform-logo">平台LOGO</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="platform-logo" class="file-input">
+                                        <button type="button" class="btn">选择文件</button>
+                                        <span class="file-name">logo.png</span>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <label for="session-timeout">会话超时时间 (分钟)</label>
+                                    <input type="number" id="session-timeout" value="30">
+                                </div>
+                                 <div class="form-item">
+                                    <label>启用登录验证码</label>
+                                    <div class="switch-control">
+                                        <input type="checkbox" id="captcha-switch" checked>
+                                        <label for="captcha-switch" class="switch-label"></label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary">保存更改</button>
+                        </div>
+                    </div>
+                    <div id="user-management" class="settings-pane">
+                        <h2>用户管理</h2>
+                        <div class="pane-toolbar">
+                            <button class="btn btn-primary">＋ 新增用户</button>
+                            <div class="search-box">
+                                <input type="text" placeholder="搜索用户...">
+                                <span class="search-icon">🔍</span>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th>用户名</th>
+                                        <th>角色</th>
+                                        <th>状态</th>
+                                        <th>最后登录时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>admin</td>
+                                        <td><span class="tag tag-admin">超级管理员</span></td>
+                                        <td><span class="status status-active">● 启用</span></td>
+                                        <td>2024-07-20 10:30:00</td>
+                                        <td class="action-links">
+                                            <a href="#">编辑</a>
+                                            <a href="#">重置密码</a>
+                                            <a href="#" class="danger-link">删除</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>guest</td>
+                                        <td><span class="tag tag-guest">访客</span></td>
+                                        <td><span class="status status-active">● 启用</span></td>
+                                        <td>2024-07-19 15:00:00</td>
+                                        <td class="action-links">
+                                            <a href="#">编辑</a>
+                                            <a href="#">重置密码</a>
+                                            <a href="#" class="danger-link">删除</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>test_user_01</td>
+                                        <td><span class="tag tag-user">普通用户</span></td>
+                                        <td><span class="status status-inactive">● 禁用</span></td>
+                                        <td>2024-07-18 09:00:00</td>
+                                        <td class="action-links">
+                                            <a href="#">编辑</a>
+                                            <a href="#">重置密码</a>
+                                            <a href="#" class="danger-link">删除</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="role-management" class="settings-pane">
+                        <h2>角色与权限</h2>
+                        <div class="role-permission-layout">
+                            <div class="role-list-container">
+                                <div class="pane-toolbar">
+                                    <h4>角色列表</h4>
+                                    <button class="btn btn-sm">＋ 新增</button>
+                                </div>
+                                <ul class="role-list">
+                                    <li class="active">
+                                        超级管理员
+                                        <span class="role-user-count">3 users</span>
+                                    </li>
+                                    <li>
+                                        普通用户
+                                        <span class="role-user-count">12 users</span>
+                                    </li>
+                                    <li>
+                                        访客
+                                        <span class="role-user-count">5 users</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="permission-tree-container">
+                                <div class="pane-toolbar">
+                                    <h4>编辑 "超级管理员" 的权限</h4>
+                                </div>
+                                <ul class="permission-tree">
+                                    <li>
+                                        <input type="checkbox" id="perm-all" checked> <label for="perm-all">全选</label>
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="perm-dashboard" checked> <label for="perm-dashboard">监控面板</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="perm-training" checked> <label for="perm-training">实训教学</label>
+                                                <ul>
+                                                    <li><input type="checkbox" id="perm-training-view" checked> <label for="perm-training-view">查看课程</label></li>
+                                                    <li><input type="checkbox" id="perm-training-manage" checked> <label for="perm-training-manage">管理课程</label></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="perm-system" checked> <label for="perm-system">系统管理</label>
+                                                <ul>
+                                                    <li><input type="checkbox" id="perm-system-user" checked> <label for="perm-system-user">用户管理</label></li>
+                                                    <li><input type="checkbox" id="perm-system-role" checked> <label for="perm-system-role">角色权限</label></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="form-actions">
+                                    <button class="btn btn-primary">保存权限</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="license-management" class="settings-pane">
+                        <h2>授权管理</h2>
+                        <div class="settings-group">
+                            <h4>当前授权信息</h4>
+                            <dl class="info-list">
+                                <dt>授权类型:</dt><dd>企业版</dd>
+                                <dt>授权用户数:</dt><dd>50</dd>
+                                <dt>授权到期日:</dt><dd>2025-01-15 <span class="tag tag-admin">剩余 180 天</span></dd>
+                                <dt>授权给:</dt><dd>东海大学</dd>
+                            </dl>
+                        </div>
+                        <div class="settings-group">
+                            <h4>更新许可证</h4>
+                            <form class="settings-form">
+                                <div class="form-item">
+                                    <label for="license-key">许可证密钥</label>
+                                    <textarea id="license-key" rows="6" placeholder="请在此处粘贴新的许可证密钥..."></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-primary">更新许可证</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="mail-service" class="settings-pane">
+                        <h2>邮件服务配置</h2>
+                        <div class="settings-group">
+                            <h4>SMTP 服务器设置</h4>
+                            <form class="settings-form">
+                                <div class="form-item">
+                                    <label for="smtp-server">SMTP 服务器</label>
+                                    <input type="text" id="smtp-server" value="smtp.example.com">
+                                </div>
+                                <div class="form-item">
+                                    <label for="smtp-port">端口</label>
+                                    <input type="number" id="smtp-port" value="465">
+                                </div>
+                                <div class="form-item">
+                                    <label for="smtp-encryption">加密方式</label>
+                                    <select id="smtp-encryption">
+                                        <option value="none">无</option>
+                                        <option value="ssl" selected>SSL/TLS</option>
+                                        <option value="starttls">STARTTLS</option>
+                                    </select>
+                                </div>
+                                <div class="form-item">
+                                    <label for="smtp-sender">发件人邮箱</label>
+                                    <input type="text" id="smtp-sender" value="noreply@example.com">
+                                </div>
+                                <div class="form-item">
+                                    <label for="smtp-username">用户名</label>
+                                    <input type="text" id="smtp-username" value="admin">
+                                </div>
+                                <div class="form-item">
+                                    <label for="smtp-password">密码</label>
+                                    <input type="password" id="smtp-password" value="••••••••">
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn">测试连接</button>
+                                    <button class="btn btn-primary">保存设置</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="backup-restore" class="settings-pane">
+                        <h2>备份与恢复</h2>
+                        <div class="settings-group">
+                            <h4>创建备份</h4>
+                            <p>点击下方按钮创建当前系统配置和数据的完整备份。</p>
+                            <dl class="info-list">
+                                <dt>上次备份时间:</dt><dd>2024-07-15 11:30:00</dd>
+                            </dl>
+                            <div class="form-actions" style="border-top: none; padding-top: 10px; text-align: left;">
+                                 <button class="btn btn-primary">立即创建备份</button>
+                            </div>
+                        </div>
+                        <div class="settings-group">
+                            <h4>从备份恢复</h4>
+                            <div class="alert alert-danger">
+                                <strong>警告:</strong> 从备份文件恢复将会覆盖所有当前的系统设置和数据。此操作不可逆，请谨慎操作！
+                            </div>
+                            <form class="settings-form" style="margin-top: 20px;">
+                                <div class="form-item">
+                                    <label for="backup-file">选择备份文件</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="backup-file" class="file-input">
+                                        <button type="button" class="btn">选择文件</button>
+                                        <span class="file-name">未选择文件</span>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-danger">恢复系统</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html> 

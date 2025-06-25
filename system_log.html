@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统日志 - 东海AI Agent动态攻防推演靶场平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container container-full-width">
+        <header class="header">
+            <div class="logo"><strong>东海AI Agent靶场</strong></div>
+            <div class="breadcrumbs">系统日志</div>
+            <div class="user-info">
+                <span>🔍</span>
+                <span>❔</span>
+                <span>🔔</span>
+                <div class="user-profile">
+                    <span class="avatar"></span>
+                    <span class="username">admin</span>
+                </div>
+            </div>
+        </header>
+        <div class="main-container">
+            <nav class="sidebar">
+                 <ul>
+                    <li><a href="monitoring.html">📖 监控面板</a></li>
+                    <li><a href="training.html">🎓 实训教学</a></li>
+                    <li><a href="individual_training.html">🎯 单兵训练</a></li>
+                    <li><a href="competition.html">⚔️ 攻防竞技</a></li>
+                    <li><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
+                    <li><a href="target_management.html">🕹️ 靶标管理</a></li>
+                    <li class="has-submenu">
+                        <a href="index.html">🌐 场景管理</a>
+                        <ul class="submenu">
+                            <li><a href="index.html">- 场景绘制</a></li>
+                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="probe_management.html">📡 探针管理</a></li>
+                    <li><a href="system_management.html">⚙️ 系统管理</a></li>
+                    <li class="active"><a href="system_log.html">📄 系统日志</a></li>
+                </ul>
+            </nav>
+            <div class="content-panel">
+                 <div class="content-header">
+                    <h1>系统日志</h1>
+                </div>
+                <div class="content-body">
+                    <div class="log-filters-toolbar">
+                        <div class="filter-group">
+                            <input type="date" value="2024-07-21">
+                            <span>-</span>
+                            <input type="date" value="2024-07-21">
+                        </div>
+                        <select>
+                            <option value="">所有级别</option>
+                            <option value="info">信息</option>
+                            <option value="warn">警告</option>
+                            <option value="error">错误</option>
+                        </select>
+                        <input type="text" placeholder="操作用户...">
+                        <div class="search-box">
+                            <input type="text" placeholder="搜索关键词...">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <button class="btn">查询</button>
+                        <button class="btn">导出日志</button>
+                    </div>
+                     <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>级别</th>
+                                    <th>时间</th>
+                                    <th>模块</th>
+                                    <th>操作用户</th>
+                                    <th>IP地址</th>
+                                    <th>事件描述</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="log-level log-level-error">ERROR</span></td>
+                                    <td>2024-07-21 14:35:01</td>
+                                    <td>登录认证</td>
+                                    <td>unknown</td>
+                                    <td>101.22.33.44</td>
+                                    <td>用户 'guest' 尝试使用错误密码登录失败 (3/5)</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="log-level log-level-info">INFO</span></td>
+                                    <td>2024-07-21 14:30:15</td>
+                                    <td>系统管理</td>
+                                    <td>admin</td>
+                                    <td>127.0.0.1</td>
+                                    <td>用户 'admin' 成功更新了系统基础设置</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="log-level log-level-warn">WARN</span></td>
+                                    <td>2024-07-21 13:50:00</td>
+                                    <td>备份与恢复</td>
+                                    <td>admin</td>
+                                    <td>127.0.0.1</td>
+                                    <td>系统备份磁盘空间即将用尽 (剩余 15%)</td>
+                                </tr>
+                                 <tr>
+                                    <td><span class="log-level log-level-info">INFO</span></td>
+                                    <td>2024-07-21 13:45:10</td>
+                                    <td>单兵训练</td>
+                                    <td>test_user_01</td>
+                                    <td>192.168.1.101</td>
+                                    <td>用户 'test_user_01' 启动了训练场景 'Web渗透基础'</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html> 

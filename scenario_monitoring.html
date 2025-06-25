@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>场景监控 - 东海AI Agent动态攻防推演靶场平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container container-full-width">
+        <header class="header">
+            <div class="logo"><strong>东海AI Agent靶场</strong></div>
+            <div class="breadcrumbs">场景管理 / 场景监控</div>
+            <div class="user-info">
+                <span>🔍</span>
+                <span>❔</span>
+                <span>🔔</span>
+                <div class="user-profile">
+                    <span class="avatar"></span>
+                    <span class="username">admin</span>
+                </div>
+            </div>
+        </header>
+        <div class="main-container">
+            <nav class="sidebar">
+                 <ul>
+                    <li><a href="monitoring.html">📖 监控面板</a></li>
+                    <li><a href="training.html">🎓 实训教学</a></li>
+                    <li><a href="individual_training.html">🎯 单兵训练</a></li>
+                    <li><a href="competition.html">⚔️ 攻防竞技</a></li>
+                    <li><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
+                    <li><a href="target_management.html">🕹️ 靶标管理</a></li>
+                    <li class="active has-submenu">
+                        <a href="index.html">🌐 场景管理</a>
+                        <ul class="submenu">
+                            <li><a href="index.html">- 场景绘制</a></li>
+                            <li class="active-submenu"><a href="scenario_monitoring.html">- 场景监控</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="probe_management.html">📡 探针管理</a></li>
+                    <li><a href="system_management.html">⚙️ 系统管理</a></li>
+                    <li><a href="system_log.html">📄 系统日志</a></li>
+                </ul>
+            </nav>
+            <div class="content-panel">
+                <div class="content-body" style="padding: 20px; overflow-y: auto;">
+                    <div class="two-column-layout scenario-monitoring-layout">
+                        <div class="sm-main-content">
+                            <div class="widget">
+                                <div class="sm-header">
+                                    <div class="sm-title-group">
+                                        <h3>场景: Web应用渗透演练</h3>
+                                        <div class="sm-status status-running">运行中</div>
+                                    </div>
+                                    <div class="sm-kpis">
+                                        <div class="kpi-item"><strong>运行时长:</strong> 01:23:45</div>
+                                        <div class="kpi-item"><strong>告警总数:</strong> <span class="text-danger">12</span></div>
+                                        <div class="kpi-item"><strong>CPU负载:</strong> 25%</div>
+                                        <div class="kpi-item"><strong>内存负载:</strong> 48%</div>
+                                    </div>
+                                </div>
+                                <div class="sm-topology-map">
+                                    <svg width="100%" height="100%" viewBox="0 0 800 500">
+                                        <defs>
+                                            <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
+                                                <feGaussianBlur stdDeviation="5" result="coloredBlur"></feGaussianBlur>
+                                                <feMerge>
+                                                    <feMergeNode in="coloredBlur"></feMergeNode>
+                                                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                                                </feMerge>
+                                            </filter>
+                                        </defs>
+                                        
+                                        <!-- Nodes -->
+                                        <g transform="translate(50, 225)">
+                                            <rect x="0" y="0" width="100" height="50" rx="5" fill="#262626" stroke="#595959"></rect>
+                                            <text x="50" y="30" text-anchor="middle" class="node-label">💣 攻击源</text>
+                                        </g>
+                                        <g transform="translate(250, 225)" class="active-defense">
+                                            <rect x="0" y="0" width="100" height="50" rx="5" fill="#262626" stroke="#595959"></rect>
+                                            <text x="50" y="30" text-anchor="middle" class="node-label">🛡️ WAF</text>
+                                        </g>
+                                        <g transform="translate(450, 150)" class="compromised-node">
+                                            <rect x="0" y="0" width="120" height="50" rx="5" fill="#262626" stroke="#595959" filter="url(#glow-red)"></rect>
+                                            <text x="60" y="30" text-anchor="middle" class="node-label">🖥️ Web Server</text>
+                                        </g>
+                                        <g transform="translate(450, 300)">
+                                            <rect x="0" y="0" width="120" height="50" rx="5" fill="#262626" stroke="#595959"></rect>
+                                            <text x="60" y="30" text-anchor="middle" class="node-label">🗄️ File Server</text>
+                                        </g>
+                                         <g transform="translate(650, 150)">
+                                            <rect x="0" y="0" width="100" height="50" rx="5" fill="#262626" stroke="#595959"></rect>
+                                            <text x="50" y="30" text-anchor="middle" class="node-label">💾 DB Server</text>
+                                        </g>
+
+                                        <!-- Edges -->
+                                        <path d="M 150 250 H 250" stroke="#bfbfbf" stroke-width="2"></path>
+                                        <path d="M 350 250 C 400 250, 400 175, 450 175" stroke="#bfbfbf" stroke-width="2" fill="none"></path>
+                                        <path d="M 350 250 C 400 250, 400 325, 450 325" stroke="#bfbfbf" stroke-width="2" fill="none"></path>
+                                        <path d="M 570 175 H 650" stroke="#bfbfbf" stroke-width="2"></path>
+                                        
+                                        <!-- Attack Path Animation -->
+                                         <path d="M 570 175 H 650" fill="none" class="attack-line" style="animation-delay: 0.5s;"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sm-sidebar">
+                            <div class="widget">
+                                <h4>实时事件流</h4>
+                                <ul class="events-list">
+                                    <li class="red">
+                                        <span class="time">10:35:12</span> 攻击源 (Kali) 对 Web Server 发起目录扫描。
+                                    </li>
+                                    <li class="blue">
+                                        <span class="time">10:35:18</span> WAF 拦截到异常请求，源IP: 10.1.1.5。
+                                    </li>
+                                    <li class="red">
+                                        <span class="time">10:36:02</span> 攻击源 (Kali) 发现登录页面 /login.php。
+                                    </li>
+                                    <li class="red">
+                                        <span class="time">10:37:31</span> 攻击源 (Kali) 对 Web Server 尝试SQL注入攻击。
+                                    </li>
+                                    <li class="red text-danger">
+                                        <span class="time">10:37:33</span> Web Server 数据库权限被获取。
+                                    </li>
+                                    <li class="blue">
+                                        <span class="time">10:38:00</span> IDS 检测到可疑数据库查询。
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红蓝对抗 - 东海AI Agent动态攻防推演靶场平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container container-full-width">
+        <header class="header">
+            <div class="logo"><strong>东海AI Agent靶场</strong></div>
+            <div class="breadcrumbs">红蓝对抗</div>
+            <div class="user-info">
+                <span>🔍</span>
+                <span>❔</span>
+                <span>🔔</span>
+                <div class="user-profile">
+                    <span class="avatar"></span>
+                    <span class="username">admin</span>
+                </div>
+            </div>
+        </header>
+        <div class="main-container">
+            <nav class="sidebar">
+                 <ul>
+                    <li><a href="monitoring.html">📖 监控面板</a></li>
+                    <li><a href="training.html">🎓 实训教学</a></li>
+                    <li><a href="individual_training.html">🎯 单兵训练</a></li>
+                    <li><a href="competition.html">⚔️ 攻防竞技</a></li>
+                    <li class="active"><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
+                    <li><a href="target_management.html">🕹️ 靶标管理</a></li>
+                    <li class="has-submenu">
+                        <a href="index.html">🌐 场景管理</a>
+                        <ul class="submenu">
+                            <li><a href="index.html">- 场景绘制</a></li>
+                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="probe_management.html">📡 探针管理</a></li>
+                    <li><a href="system_management.html">⚙️ 系统管理</a></li>
+                    <li><a href="system_log.html">📄 系统日志</a></li>
+                </ul>
+            </nav>
+            <div class="content-panel">
+                <div class="content-body" style="padding: 20px; overflow-y: auto;">
+                    <div class="page-header">
+                        <h1>红蓝对抗</h1>
+                        <p>创建、管理和复盘红蓝双方在真实网络环境中的攻防演练。</p>
+                    </div>
+                    <div class="toolbar">
+                        <button class="btn btn-primary">➕ 创建新对抗</button>
+                        <div class="filters" style="margin-left: auto;">
+                            <select class="filter-select">
+                                <option>所有状态</option>
+                                <option>进行中</option>
+                                <option>已结束</option>
+                            </select>
+                            <input type="text" placeholder="搜索对抗名称..." class="search-input">
+                        </div>
+                    </div>
+                    <div class="rvb-grid">
+                        <!-- Card 1 -->
+                        <div class="rvb-card">
+                            <div class="card-header">
+                                <h3>企业内网渗透演练</h3>
+                                <span class="status status-running">进行中</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="team red-team">
+                                    <span class="team-name">红方: 幽灵之刃</span>
+                                    <div class="score">850</div>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team blue-team">
+                                    <span class="team-name">蓝方: 钢铁守卫</span>
+                                    <div class="score">920</div>
+                                </div>
+                            </div>
+                             <div class="card-footer">
+                                <span>开始时间: 2024-07-20 09:00</span>
+                                <button class="btn btn-sm">进入演练</button>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="rvb-card">
+                            <div class="card-header">
+                                <h3>Web应用专项攻防</h3>
+                                <span class="status status-stopped">已结束</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="team red-team">
+                                    <span class="team-name">红方: 代码审计组</span>
+                                    <div class="score">1200</div>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team blue-team">
+                                     <span class="team-name">蓝方: 应急响应中心</span>
+                                    <div class="score">1100</div>
+                                </div>
+                            </div>
+                             <div class="card-footer">
+                                <span>结束时间: 2024-07-18 17:00</span>
+                                <button class="btn btn-sm">查看复盘</button>
+                            </div>
+                        </div>
+                        <!-- Card 3: New -->
+                        <div class="rvb-card">
+                            <div class="card-header">
+                                <h3>金融系统APT攻击模拟</h3>
+                                <span class="status status-running">进行中</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="team red-team">
+                                    <span class="team-name">红方: APT-29模拟组</span>
+                                    <div class="score">1500</div>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team blue-team">
+                                    <span class="team-name">蓝方: 金融安全部</span>
+                                    <div class="score">1320</div>
+                                </div>
+                            </div>
+                             <div class="card-footer">
+                                <span>开始时间: 2024-07-21 10:00</span>
+                                <button class="btn btn-sm">进入演练</button>
+                            </div>
+                        </div>
+                        <!-- Card 4: New -->
+                        <div class="rvb-card">
+                            <div class="card-header">
+                                <h3>工控网络安全演习</h3>
+                                <span class="status status-stopped">已结束</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="team red-team">
+                                    <span class="team-name">红方: Stuxnet分析小组</span>
+                                    <div class="score">980</div>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team blue-team">
+                                     <span class="team-name">蓝方: SCADA运维团队</span>
+                                    <div class="score">1050</div>
+                                </div>
+                            </div>
+                             <div class="card-footer">
+                                <span>结束时间: 2024-07-15 18:00</span>
+                                <button class="btn btn-sm">查看复盘</button>
+                            </div>
+                        </div>
+                        <!-- Card 5: New -->
+                        <div class="rvb-card">
+                            <div class="card-header">
+                                <h3>云原生环境安全攻防</h3>
+                                <span class="status status-running">进行中</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="team red-team">
+                                    <span class="team-name">红方: K8s-Masters</span>
+                                    <div class="score">2100</div>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team blue-team">
+                                    <span class="team-name">蓝方: SRE响应小组</span>
+                                    <div class="score">1950</div>
+                                </div>
+                            </div>
+                             <div class="card-footer">
+                                <span>开始时间: 2024-07-22 14:00</span>
+                                <button class="btn btn-sm">进入演练</button>
+                            </div>
+                        </div>
+                        <!-- Card 6: New -->
+                        <div class="rvb-card">
+                            <div class="card-header">
+                                <h3>数据泄露应急响应演练</h3>
+                                <span class="status status-stopped">已结束</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="team red-team">
+                                    <span class="team-name">红方: 渗透测试部</span>
+                                    <div class="score">1750</div>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team blue-team">
+                                     <span class="team-name">蓝方: 企业CERT</span>
+                                    <div class="score">1820</div>
+                                </div>
+                            </div>
+                             <div class="card-footer">
+                                <span>结束时间: 2024-07-11 12:00</span>
+                                <button class="btn btn-sm">查看复盘</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html> 

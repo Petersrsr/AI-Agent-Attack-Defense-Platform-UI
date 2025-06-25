@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探针管理 - 东海AI Agent动态攻防推演靶场平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container container-full-width">
+        <header class="header">
+            <div class="logo"><strong>东海AI Agent靶场</strong></div>
+            <div class="breadcrumbs">探针管理</div>
+            <div class="user-info">
+                <span>🔍</span>
+                <span>❔</span>
+                <span>🔔</span>
+                <div class="user-profile">
+                    <span class="avatar"></span>
+                    <span class="username">admin</span>
+                </div>
+            </div>
+        </header>
+        <div class="main-container">
+            <nav class="sidebar">
+                 <ul>
+                    <li><a href="monitoring.html">📖 监控面板</a></li>
+                    <li><a href="training.html">🎓 实训教学</a></li>
+                    <li><a href="individual_training.html">🎯 单兵训练</a></li>
+                    <li><a href="competition.html">⚔️ 攻防竞技</a></li>
+                    <li><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
+                    <li><a href="target_management.html">🕹️ 靶标管理</a></li>
+                    <li class="has-submenu">
+                        <a href="index.html">🌐 场景管理</a>
+                        <ul class="submenu">
+                            <li><a href="index.html">- 场景绘制</a></li>
+                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="probe_management.html">📡 探针管理</a></li>
+                    <li><a href="system_management.html">⚙️ 系统管理</a></li>
+                    <li><a href="system_log.html">📄 系统日志</a></li>
+                </ul>
+            </nav>
+            <div class="content-panel">
+                <div class="content-body" style="padding: 20px; overflow-y: auto;">
+                    <div class="two-column-layout individual-training-layout">
+                        <div class="it-main-content">
+                            <div class="page-header">
+                                <h1>探针管理</h1>
+                                <p>全面掌控靶场环境中的所有探针状态。</p>
+                            </div>
+                            <div class="widget">
+                                <div class="toolbar">
+                                   <button class="btn btn-primary">➕ 注册新探针</button>
+                                   <div class="filters" style="margin-left: auto;">
+                                        <input type="text" placeholder="搜索ID、关联目标..." class="search-input">
+                                        <select class="filter-select">
+                                            <option>所有状态</option>
+                                            <option>在线</option>
+                                            <option>离线</option>
+                                            <option>异常</option>
+                                        </select>
+                                        <select class="filter-select">
+                                            <option>所有类型</option>
+                                            <option>主机探针</option>
+                                            <option>网络探针</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>探针ID</th>
+                                            <th>探针类型</th>
+                                            <th>关联目标</th>
+                                            <th>探针版本</th>
+                                            <th>上次心跳</th>
+                                            <th>状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>host-probe-001a</td>
+                                            <td>主机探针</td>
+                                            <td>192.168.10.15</td>
+                                            <td><span class="text-danger">v1.2.0</span></td>
+                                            <td>2024-05-21 10:38:10</td>
+                                            <td><span class="status status-running">在线</span></td>
+                                            <td class="action-buttons">
+                                                <button class="btn-action">策略</button>
+                                                <button class="btn-action">日志</button>
+                                                <button class="btn-action delete">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>net-probe-005c</td>
+                                            <td>网络探针</td>
+                                            <td>10.10.0.0/16</td>
+                                            <td>v2.1.5</td>
+                                            <td>2024-05-21 10:38:12</td>
+                                            <td><span class="status status-running">在线</span></td>
+                                            <td class="action-buttons">
+                                                <button class="btn-action">策略</button>
+                                                <button class="btn-action">日志</button>
+                                                <button class="btn-action delete">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>host-probe-023f</td>
+                                            <td>主机探针</td>
+                                            <td>192.168.12.30</td>
+                                            <td>v1.3.1</td>
+                                             <td>2024-05-21 10:25:01</td>
+                                            <td><span class="status status-stopped">离线</span></td>
+                                            <td class="action-buttons">
+                                                <button class="btn-action">策略</button>
+                                                <button class="btn-action">日志</button>
+                                                <button class="btn-action delete">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>net-probe-011b</td>
+                                            <td>网络探针</td>
+                                            <td>172.16.0.0/12</td>
+                                            <td>v2.1.5</td>
+                                            <td>2024-05-21 10:39:01</td>
+                                            <td><span class="status status-running">在线</span></td>
+                                            <td class="action-buttons">
+                                                <button class="btn-action">策略</button>
+                                                <button class="btn-action">日志</button>
+                                                <button class="btn-action delete">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>host-probe-045d</td>
+                                            <td>主机探针</td>
+                                            <td>ws-data-center.local</td>
+                                            <td>v1.3.1</td>
+                                            <td>2024-05-20 18:00:00</td>
+                                            <td><span class="status status-stopped">离线</span></td>
+                                            <td class="action-buttons">
+                                                <button class="btn-action">策略</button>
+                                                <button class="btn-action">日志</button>
+                                                <button class="btn-action delete">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>host-probe-007e</td>
+                                            <td>主机探针</td>
+                                            <td>192.168.10.22</td>
+                                            <td>v1.3.0</td>
+                                            <td>2024-05-21 10:39:05</td>
+                                            <td><span class="status status-error">异常</span></td>
+                                            <td class="action-buttons">
+                                                <button class="btn-action">策略</button>
+                                                <button class="btn-action">日志</button>
+                                                <button class="btn-action delete">删除</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="it-sidebar">
+                            <div class="widget kpi-card">
+                                <h4>探针总数</h4>
+                                <div class="kpi-value">87</div>
+                            </div>
+                            <div class="widget kpi-card">
+                                <h4>在线数量</h4>
+                                <div class="kpi-value">82</div>
+                            </div>
+                            <div class="widget kpi-card">
+                                <h4>离线数量</h4>
+                                <div class="kpi-value">5</div>
+                            </div>
+                            <div class="widget kpi-card">
+                                <h4>版本异常</h4>
+                                <div class="kpi-value">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html> 

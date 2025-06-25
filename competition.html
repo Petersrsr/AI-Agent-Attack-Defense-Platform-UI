@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>攻防竞技 - 东海AI Agent动态攻防推演靶场平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container container-full-width">
+        <header class="header">
+            <div class="logo"><strong>东海AI Agent靶场</strong></div>
+            <div class="breadcrumbs">攻防竞技</div>
+            <div class="user-info">
+                <span>🔍</span>
+                <span>❔</span>
+                <span>🔔</span>
+                <div class="user-profile">
+                    <span class="avatar"></span>
+                    <span class="username">admin</span>
+                </div>
+            </div>
+        </header>
+        <div class="main-container">
+            <nav class="sidebar">
+                 <ul>
+                    <li><a href="monitoring.html">📖 监控面板</a></li>
+                    <li class="has-submenu"><a href="training.html">🎓 实训教学</a></li>
+                    <li class="has-submenu"><a href="individual_training.html">🎯 单兵训练</a></li>
+                    <li class="active has-submenu"><a href="competition.html">⚔️ 攻防竞技</a></li>
+                    <li class="has-submenu"><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
+                    <li class="has-submenu"><a href="target_management.html">🕹️ 靶标管理</a></li>
+                    <li class="has-submenu">
+                        <a href="index.html">🌐 场景管理</a>
+                        <ul class="submenu">
+                            <li><a href="index.html">- 场景绘制</a></li>
+                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="probe_management.html">📡 探针管理</a></li>
+                    <li><a href="system_management.html">⚙️ 系统管理</a></li>
+                    <li><a href="system_log.html">📄 系统日志</a></li>
+                </ul>
+            </nav>
+            <div class="content-panel">
+                <div class="content-body competition-page-v2" style="padding: 20px; overflow-y: auto;">
+                    <div class="page-header">
+                        <h1>第一届"东海杯"网络安全大赛</h1>
+                        <div class="header-meta">
+                            <span class="status status-running" style="margin-right: 20px;">● 比赛进行中</span>
+                            <span class="meta-item"><strong>参赛队伍:</strong> 32</span>
+                            <span class="meta-item"><strong>题目总数:</strong> 25</span>
+                        </div>
+                    </div>
+                    <div class="two-column-layout">
+                        <div class="it-main-content">
+                             <div class="widget scoreboard">
+                                <h4>实时计分板</h4>
+                                <div class="table-container">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>排名</th>
+                                                <th>队伍名称</th>
+                                                <th>解题数</th>
+                                                <th>总得分</th>
+                                                <th>最后提交时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="rank rank-1">1</span></td>
+                                                <td>野狼突击队</td>
+                                                <td>8</td>
+                                                <td>2400</td>
+                                                <td>11:58:32</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank rank-2">2</span></td>
+                                                <td>赛博尖兵</td>
+                                                <td>7</td>
+                                                <td>2100</td>
+                                                <td>11:55:10</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank rank-3">3</span></td>
+                                                <td>二进制梦之队</td>
+                                                <td>7</td>
+                                                <td>2050</td>
+                                                <td>12:01:05</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank">4</span></td>
+                                                <td>Bug Hunters</td>
+                                                <td>6</td>
+                                                <td>1800</td>
+                                                <td>11:40:22</td>
+                                            </tr>
+                                             <tr>
+                                                <td><span class="rank">5</span></td>
+                                                <td>键盘侠客</td>
+                                                <td>5</td>
+                                                <td>1500</td>
+                                                <td>11:35:09</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank">6</span></td>
+                                                <td>网络幽灵</td>
+                                                <td>5</td>
+                                                <td>1450</td>
+                                                <td>12:05:11</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank">7</span></td>
+                                                <td>代码工匠</td>
+                                                <td>4</td>
+                                                <td>1200</td>
+                                                <td>11:59:02</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank">8</span></td>
+                                                <td>0-Day Seekers</td>
+                                                <td>4</td>
+                                                <td>1150</td>
+                                                <td>11:48:33</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank">9</span></td>
+                                                <td>数字先锋</td>
+                                                <td>3</td>
+                                                <td>900</td>
+                                                <td>10:55:45</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank">10</span></td>
+                                                <td>矩阵漫游者</td>
+                                                <td>3</td>
+                                                <td>850</td>
+                                                <td>11:15:20</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="it-sidebar">
+                            <div class="widget countdown-widget">
+                                <h4>距离比赛结束</h4>
+                                <div class="timer">01:28:45</div>
+                            </div>
+                            <div class="widget chart-widget">
+                                <h4>Top 5 得分趋势</h4>
+                                <div class="chart-placeholder">
+                                    <svg width="100%" height="100%" viewBox="0 0 500 220" preserveAspectRatio="none">
+                                        <path d="M 0 180 C 100 150, 200 100, 300 110 S 450 80, 500 60" stroke="#f5222d" fill="none" stroke-width="2" stroke-dasharray="5,5"></path>
+                                        <path d="M 0 200 C 100 190, 200 120, 300 140 S 450 130, 500 100" stroke="#faad14" fill="none" stroke-width="2"></path>
+                                        <path d="M 0 210 C 100 200, 200 180, 300 160 S 450 170, 500 150" stroke="#1890ff" fill="none" stroke-width="2"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="widget events-widget">
+                                <h4>最新战报</h4>
+                                <ul class="events-list">
+                                    <li><span class="time">12:01:05</span> [二进制梦之队] 夺得 [PWN-100] 一血！</li>
+                                    <li><span class="time">11:58:32</span> [野狼突击队] 成功解出 [Web-200]。</li>
+                                    <li><span class="time">11:55:10</span> [赛博尖兵] 夺得 [Crypto-300] 一血！</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html> 
