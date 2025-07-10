@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https//www.donghai.com/logo.svg" alt="Logo" width="100"> 
   <h1>东海AI Agent动态攻防推演靶场平台</h1>
   <p><strong>一个高保真的纯静态前端UI原型，旨在展示下一代网络安全演练平台的界面与交互。</strong></p>
   
