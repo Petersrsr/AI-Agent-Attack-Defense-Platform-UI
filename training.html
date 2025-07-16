@@ -30,13 +30,9 @@
                     <li class="has-submenu"><a href="competition.html">⚔️ 攻防竞技</a></li>
                     <li class="has-submenu"><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
                     <li class="has-submenu"><a href="target_management.html">🕹️ 靶标管理</a></li>
-                    <li class="has-submenu">
-                        <a href="index.html">🌐 场景管理</a>
-                        <ul class="submenu">
-                            <li><a href="index.html">- 场景绘制</a></li>
-                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="scenario_management.html">🌐 场景管理</a></li>
+                    <li><a href="index.html">🎨 场景绘制</a></li>
+                    <li><a href="scenario_monitoring.html">📈 场景监控</a></li>
                     <li><a href="probe_management.html">📡 探针管理</a></li>
                     <li><a href="system_management.html">⚙️ 系统管理</a></li>
                     <li><a href="system_log.html">📄 系统日志</a></li>
@@ -49,136 +45,92 @@
                         <p>系统化学习网络安全知识体系，从入门到精通。</p>
                     </div>
                     <div class="course-grid">
+                        <!-- Card 1: Web安全 -->
                         <div class="course-card">
-                            <div class="course-banner" style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);"></div>
+                            <div class="course-banner" style="background: linear-gradient(45deg, #007bff, #0056b3);"></div>
                             <div class="course-body">
-                                <h3>Web安全入门</h3>
-                                <p class="course-desc">学习常见的Web漏洞，如SQL注入、XSS、CSRF等原理与利用方法。</p>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 75%;"></div>
-                                </div>
-                                <div class="card-footer">
-                                    <span>75% 已完成</span>
-                                    <button class="btn btn-primary">继续学习</button>
-                                </div>
+                                <h3>Web安全：从入门到OWASP Top 10</h3>
+                                <p class="course-desc">学习SQL注入、XSS、CSRF等最常见的Web漏洞原理与防御方法。</p>
+                                <div class="course-meta"><span>12 课时</span><span>入门</span></div>
+                                <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+                                <div class="card-footer"><span>75% 已完成</span><button class="btn btn-primary">继续学习</button></div>
                             </div>
                         </div>
+                        <!-- Card 2: 内网渗透 -->
                         <div class="course-card">
-                             <div class="course-banner" style="background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);"></div>
+                             <div class="course-banner" style="background: linear-gradient(45deg, #28a745, #1e7e34);"></div>
                              <div class="course-body">
-                                <h3>内网渗透基础</h3>
+                                <h3>企业内网渗透测试</h3>
                                 <p class="course-desc">掌握内网信息收集、横向移动、权限提升等核心渗透测试技术。</p>
-                                 <div class="progress-bar">
-                                    <div class="progress" style="width: 20%;"></div>
-                                </div>
-                                 <div class="card-footer">
-                                    <span>20% 已完成</span>
-                                    <button class="btn btn-primary">继续学习</button>
-                                </div>
+                                <div class="course-meta"><span>20 课时</span><span>中级</span></div>
+                                <div class="progress-bar"><div class="progress" style="width: 20%;"></div></div>
+                                <div class="card-footer"><span>20% 已完成</span><button class="btn btn-primary">继续学习</button></div>
                             </div>
                         </div>
+                        <!-- Card 3: 二进制安全 -->
                         <div class="course-card">
-                            <div class="course-banner" style="background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);"></div>
+                            <div class="course-banner" style="background: linear-gradient(45deg, #dc3545, #b02a37);"></div>
                              <div class="course-body">
-                                <h3>恶意代码分析</h3>
-                                <p class="course-desc">学习静态和动态分析技术，解剖恶意软件的行为和机制。</p>
-                                 <div class="progress-bar">
-                                    <div class="progress" style="width: 0%;"></div>
-                                </div>
-                                 <div class="card-footer">
-                                    <span>尚未开始</span>
-                                    <button class="btn">开始学习</button>
-                                </div>
+                                <h3>二进制安全：Pwn挑战核心技术</h3>
+                                <p class="course-desc">深入理解栈溢出、堆利用、ROP等二进制漏洞利用的核心原理。</p>
+                                <div class="course-meta"><span>25 课时</span><span>困难</span></div>
+                                <div class="progress-bar"><div class="progress" style="width: 0%;"></div></div>
+                                <div class="card-footer"><span>尚未开始</span><button class="btn">开始学习</button></div>
                             </div>
                         </div>
+                        <!-- Card 4: 云安全 -->
                         <div class="course-card">
-                             <div class="course-banner" style="background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);"></div>
+                             <div class="course-banner" style="background: linear-gradient(45deg, #17a2b8, #117a8b);"></div>
                              <div class="course-body">
-                                <h3>应急响应实战</h3>
-                                <p class="course-desc">学习在真实攻击事件中如何进行日志分析、溯源和系统加固。</p>
-                                 <div class="progress-bar">
-                                    <div class="progress" style="width: 0%;"></div>
-                                </div>
-                                 <div class="card-footer">
-                                    <span>尚未开始</span>
-                                    <button class="btn">开始学习</button>
-                                </div>
+                                <h3>云安全：AWS与K8s攻防</h3>
+                                <p class="course-desc">学习云原生环境下的安全配置、漏洞利用和防御加固策略。</p>
+                                <div class="course-meta"><span>18 课时</span><span>中级</span></div>
+                                <div class="progress-bar"><div class="progress" style="width: 0%;"></div></div>
+                                <div class="card-footer"><span>尚未开始</span><button class="btn">开始学习</button></div>
                             </div>
                         </div>
+                        <!-- Card 5: Python自动化 -->
                         <div class="course-card">
-                             <div class="course-banner" style="background-image: linear-gradient(to top, #e14fad 0%, #f9d423 100%);"></div>
+                            <div class="course-banner" style="background: linear-gradient(45deg, #ffc107, #d39e00);"></div>
                              <div class="course-body">
-                                <h3>恶意软件分析实战</h3>
-                                <p class="course-desc">学习如何逆向和分析常见的恶意软件样本。</p>
-                                 <div class="progress-bar"><div class="progress" style="width: 0%;"></div></div>
-                                 <div class="card-footer">
-                                    <span>尚未开始</span>
-                                    <button class="btn">开始学习</button>
-                                </div>
+                                <h3>Python自动化安全运维</h3>
+                                <p class="course-desc">学习使用Python编写自动化脚本，提升安全评估和运维效率。</p>
+                                <div class="course-meta"><span>15 课时</span><span>入门</span></div>
+                                <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                                <div class="card-footer"><span>50% 已完成</span><button class="btn btn-primary">继续学习</button></div>
                             </div>
                         </div>
+                        <!-- Card 6: 数据安全 -->
                         <div class="course-card">
-                             <div class="course-banner" style="background-image: linear-gradient(to top, #c0392b 0%, #8e44ad 100%);"></div>
+                             <div class="course-banner" style="background: linear-gradient(45deg, #fd7e14, #c66511);"></div>
                              <div class="course-body">
-                                <h3>内网渗透测试案例</h3>
-                                <p class="course-desc">通过真实案例学习内网渗透的思路与技巧。</p>
-                                 <div class="progress-bar"><div class="progress" style="width: 0%;"></div></div>
-                                 <div class="card-footer">
-                                     <span>尚未开始</span>
-                                     <button class="btn">开始学习</button>
-                                 </div>
+                                <h3>数据安全与隐私保护</h3>
+                                <p class="course-desc">深入了解GDPR/PIPL等法规，学习数据分类、加密和脱敏技术。</p>
+                                <div class="course-meta"><span>10 课时</span><span>中级</span></div>
+                                <div class="progress-bar"><div class="progress" style="width: 0%;"></div></div>
+                                <div class="card-footer"><span>尚未开始</span><button class="btn">开始学习</button></div>
                             </div>
                         </div>
+                        <!-- Card 7: 逆向工程 -->
                         <div class="course-card">
-                             <div class="course-banner" style="background-image: linear-gradient(to top, #2980b9 0%, #6dd5fa 100%);"></div>
+                             <div class="course-banner" style="background: linear-gradient(45deg, #6610f2, #4a09b5);"></div>
                              <div class="course-body">
-                                <h3>数字取证技术入门</h3>
-                                <p class="course-desc">掌握计算机和网络取证的基础知识和工具使用。</p>
-                                 <div class="progress-bar"><div class="progress" style="width: 15%;"></div></div>
-                                 <div class="card-footer">
-                                     <span>15% 已完成</span>
-                                     <button class="btn btn-primary">继续学习</button>
-                                 </div>
+                                <h3>逆向工程与恶意软件分析</h3>
+                                <p class="course-desc">掌握使用IDA、Ghidra等工具对软件和恶意代码进行逆向分析。</p>
+                                <div class="course-meta"><span>30 课时</span><span>困难</span></div>
+                                <div class="progress-bar"><div class="progress" style="width: 15%;"></div></div>
+                                <div class="card-footer"><span>15% 已完成</span><button class="btn btn-primary">继续学习</button></div>
                             </div>
                         </div>
+                        <!-- Card 8: 密码学 -->
                         <div class="course-card">
-                             <div class="course-banner" style="background-image: linear-gradient(to top, #f39c12 0%, #f1c40f 100%);"></div>
+                             <div class="course-banner" style="background: linear-gradient(45deg, #343a40, #1d2124);"></div>
                              <div class="course-body">
-                                <h3>移动安全（Android）</h3>
-                                <p class="course-desc">学习Android应用的漏洞挖掘和安全加固。</p>
-                                 <div class="progress-bar"><div class="progress" style="width: 0%;"></div></div>
-                                 <div class="card-footer">
-                                     <span>尚未开始</span>
-                                     <button class="btn">开始学习</button>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="course-card">
-                            <div class="course-banner" style="background-image: linear-gradient(to top, #e14fad 0%, #f9d423 100%);"></div>
-                             <div class="course-body">
-                                <h3>移动安全 (Android)</h3>
-                                <p class="course-desc">学习Android应用的漏洞挖掘、逆向分析和安全加固技术。</p>
-                                 <div class="progress-bar">
-                                    <div class="progress" style="width: 0%;"></div>
-                                </div>
-                                 <div class="card-footer">
-                                    <span>尚未开始</span>
-                                    <button class="btn">开始学习</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="course-card">
-                            <div class="course-banner" style="background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);"></div>
-                             <div class="course-body">
-                                <h3>Python安全编程</h3>
-                                <p class="course-desc">学习使用Python编写安全工具，实现自动化安全任务。</p>
-                                 <div class="progress-bar">
-                                    <div class="progress" style="width: 50%;"></div>
-                                </div>
-                                 <div class="card-footer">
-                                    <span>50% 已完成</span>
-                                    <button class="btn btn-primary">继续学习</button>
-                                </div>
+                                <h3>密码学实战：从古典到现代</h3>
+                                <p class="course-desc">探索从凯撒密码到AES、RSA、ECC的加密算法原理与实际应用。</p>
+                                <div class="course-meta"><span>22 课时</span><span>困难</span></div>
+                                <div class="progress-bar"><div class="progress" style="width: 0%;"></div></div>
+                                 <div class="card-footer"><span>尚未开始</span><button class="btn">开始学习</button></div>
                             </div>
                         </div>
                      </div>

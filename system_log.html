@@ -30,13 +30,9 @@
                     <li><a href="competition.html">⚔️ 攻防竞技</a></li>
                     <li><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
                     <li><a href="target_management.html">🕹️ 靶标管理</a></li>
-                    <li class="has-submenu">
-                        <a href="index.html">🌐 场景管理</a>
-                        <ul class="submenu">
-                            <li><a href="index.html">- 场景绘制</a></li>
-                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="scenario_management.html">🌐 场景管理</a></li>
+                    <li><a href="index.html">🎨 场景绘制</a></li>
+                    <li><a href="scenario_monitoring.html">📈 场景监控</a></li>
                     <li><a href="probe_management.html">📡 探针管理</a></li>
                     <li><a href="system_management.html">⚙️ 系统管理</a></li>
                     <li class="active"><a href="system_log.html">📄 系统日志</a></li>
@@ -46,74 +42,141 @@
                  <div class="content-header">
                     <h1>系统日志</h1>
                 </div>
-                <div class="content-body">
-                    <div class="log-filters-toolbar">
+                <div class="content-body" style="display: flex; flex-direction: column;">
+                    <div class="log-filters-toolbar" style="padding: 15px; background-color: #fafafa; border: 1px solid #e8e8e8; border-radius: 4px; margin-bottom: 20px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
                         <div class="filter-group">
-                            <input type="date" value="2024-07-21">
-                            <span>-</span>
-                            <input type="date" value="2024-07-21">
+                            <label style="margin-right: 5px;">时间范围:</label>
+                            <input type="datetime-local" value="2024-05-20T00:00" class="filter-select">
+                            <span style="margin: 0 5px;">-</span>
+                            <input type="datetime-local" value="2024-05-21T23:59" class="filter-select">
                         </div>
-                        <select>
-                            <option value="">所有级别</option>
-                            <option value="info">信息</option>
-                            <option value="warn">警告</option>
-                            <option value="error">错误</option>
-                        </select>
-                        <input type="text" placeholder="操作用户...">
-                        <div class="search-box">
-                            <input type="text" placeholder="搜索关键词...">
-                            <span class="search-icon">🔍</span>
+                        <div class="filter-group">
+                             <label style="margin-right: 5px;">级别:</label>
+                            <select class="filter-select">
+                                <option value="">所有级别</option>
+                                <option value="info">INFO</option>
+                                <option value="warn">WARN</option>
+                                <option value="error">ERROR</option>
+                                <option value="critical">CRITICAL</option>
+                            </select>
                         </div>
-                        <button class="btn">查询</button>
-                        <button class="btn">导出日志</button>
+                        <div class="filter-group">
+                            <label style="margin-right: 5px;">模块:</label>
+                            <input type="text" placeholder="模块名..." class="search-input" style="width: 120px;">
+                        </div>
+                         <div class="filter-group" style="margin-left: auto;">
+                            <input type="text" placeholder="搜索关键词、IP、用户..." class="search-input" style="width: 250px;">
+                            <button class="btn btn-primary">查询</button>
+                            <button class="btn">导出日志</button>
+                        </div>
                     </div>
-                     <div class="table-container">
+                     <div class="table-container" style="flex-grow: 1; overflow-y: auto;">
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th>级别</th>
-                                    <th>时间</th>
-                                    <th>模块</th>
-                                    <th>操作用户</th>
-                                    <th>IP地址</th>
+                                    <th style="width: 8%;">级别</th>
+                                    <th style="width: 15%;">时间</th>
+                                    <th style="width: 12%;">模块</th>
+                                    <th style="width: 10%;">操作用户</th>
+                                    <th style="width: 12%;">IP地址</th>
                                     <th>事件描述</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><span class="log-level log-level-error">ERROR</span></td>
-                                    <td>2024-07-21 14:35:01</td>
-                                    <td>登录认证</td>
-                                    <td>unknown</td>
-                                    <td>101.22.33.44</td>
-                                    <td>用户 'guest' 尝试使用错误密码登录失败 (3/5)</td>
+                                    <td><span class="log-level log-level-critical">CRITICAL</span></td>
+                                    <td>2024-05-21 15:30:05</td>
+                                    <td>推演引擎</td>
+                                    <td>system</td>
+                                    <td>10.0.1.5</td>
+                                    <td>推演引擎主循环崩溃，错误：SIGSEGV at 0x00007f... 服务已自动重启。</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="log-level log-level-info">INFO</span></td>
-                                    <td>2024-07-21 14:30:15</td>
-                                    <td>系统管理</td>
-                                    <td>admin</td>
-                                    <td>127.0.0.1</td>
-                                    <td>用户 'admin' 成功更新了系统基础设置</td>
+                                    <td><span class="log-level log-level-error">ERROR</span></td>
+                                    <td>2024-05-21 14:35:01</td>
+                                    <td>API Gateway</td>
+                                    <td>red_team_lead</td>
+                                    <td>202.118.33.44</td>
+                                    <td>请求 /api/v1/scenario/create 失败, 上游 '场景服务' 返回 503 Service Unavailable</td>
                                 </tr>
                                 <tr>
                                     <td><span class="log-level log-level-warn">WARN</span></td>
-                                    <td>2024-07-21 13:50:00</td>
-                                    <td>备份与恢复</td>
+                                    <td>2024-05-21 13:50:00</td>
+                                    <td>数据库</td>
+                                    <td>system</td>
+                                    <td>172.16.1.100</td>
+                                    <td>数据库连接池警告：85/100 连接正在使用中。</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="log-level log-level-info">INFO</span></td>
+                                    <td>2024-05-21 13:45:10</td>
+                                    <td>场景服务</td>
                                     <td>admin</td>
-                                    <td>127.0.0.1</td>
-                                    <td>系统备份磁盘空间即将用尽 (剩余 15%)</td>
+                                    <td>192.168.1.101</td>
+                                    <td>场景 '金融核心交易网络APT...' 部署成功, 耗时 42.8s</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="log-level log-level-info">INFO</span></td>
+                                    <td>2024-05-21 13:30:00</td>
+                                    <td>用户认证</td>
+                                    <td>admin</td>
+                                    <td>192.168.1.101</td>
+                                    <td>用户 'admin' 从 192.168.1.101 登录成功。</td>
                                 </tr>
                                  <tr>
+                                    <td><span class="log-level log-level-error">ERROR</span></td>
+                                    <td>2024-05-21 11:20:10</td>
+                                    <td>探针管理</td>
+                                    <td>system</td>
+                                    <td>10.1.1.10</td>
+                                    <td>探针 HP-DMZ-WEB002 上报数据格式错误，已忽略。</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="log-level log-level-warn">WARN</span></td>
+                                    <td>2024-05-21 10:15:00</td>
+                                    <td>系统管理</td>
+                                    <td>admin</td>
+                                    <td>127.0.0.1</td>
+                                    <td>许可证即将到期 (剩余 15 天)。</td>
+                                </tr>
+                                <tr>
                                     <td><span class="log-level log-level-info">INFO</span></td>
-                                    <td>2024-07-21 13:45:10</td>
-                                    <td>单兵训练</td>
-                                    <td>test_user_01</td>
-                                    <td>192.168.1.101</td>
-                                    <td>用户 'test_user_01' 启动了训练场景 'Web渗透基础'</td>
+                                    <td>2024-05-21 09:00:00</td>
+                                    <td>系统服务</td>
+                                    <td>system</td>
+                                    <td>localhost</td>
+                                    <td>服务 'AI Agent Service' 启动成功，监听端口 50051。</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="log-level log-level-error">ERROR</span></td>
+                                    <td>2024-05-20 18:30:00</td>
+                                    <td>用户认证</td>
+                                    <td>(unknown)</td>
+                                    <td>58.22.96.15</td>
+                                    <td>来自IP 58.22.96.15 的登录尝试失败 (密码错误), 用户: 'administrator'</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="log-level log-level-info">INFO</span></td>
+                                    <td>2024-05-20 17:00:00</td>
+                                    <td>系统服务</td>
+                                    <td>system</td>
+                                    <td>localhost</td>
+                                    <td>每日日志归档任务完成。</td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                     <div class="pagination-container" style="display: flex; justify-content: flex-end; align-items: center; padding: 15px 0; border-top: 1px solid #e8e8e8; flex-shrink: 0;">
+                        <span style="font-size: 14px; margin-right: 15px;">共 1,283 条</span>
+                        <div class="pagination">
+                            <button class="btn" disabled>«</button>
+                            <button class="btn btn-primary">1</button>
+                            <button class="btn">2</button>
+                            <button class="btn">3</button>
+                            <button class="btn">...</button>
+                            <button class="btn">129</button>
+                            <button class="btn">»</button>
+                        </div>
                     </div>
                 </div>
             </div>

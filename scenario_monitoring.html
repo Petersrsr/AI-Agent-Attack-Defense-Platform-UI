@@ -30,105 +30,207 @@
                     <li><a href="competition.html">⚔️ 攻防竞技</a></li>
                     <li><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
                     <li><a href="target_management.html">🕹️ 靶标管理</a></li>
-                    <li class="active has-submenu">
-                        <a href="index.html">🌐 场景管理</a>
-                        <ul class="submenu">
-                            <li><a href="index.html">- 场景绘制</a></li>
-                            <li class="active-submenu"><a href="scenario_monitoring.html">- 场景监控</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="scenario_management.html">🌐 场景管理</a></li>
+                    <li><a href="index.html">🎨 场景绘制</a></li>
+                    <li class="active"><a href="scenario_monitoring.html">📈 场景监控</a></li>
                     <li><a href="probe_management.html">📡 探针管理</a></li>
                     <li><a href="system_management.html">⚙️ 系统管理</a></li>
                     <li><a href="system_log.html">📄 系统日志</a></li>
                 </ul>
             </nav>
             <div class="content-panel">
-                <div class="content-body" style="padding: 20px; overflow-y: auto;">
-                    <div class="two-column-layout scenario-monitoring-layout">
-                        <div class="sm-main-content">
-                            <div class="widget">
-                                <div class="sm-header">
-                                    <div class="sm-title-group">
-                                        <h3>场景: Web应用渗透演练</h3>
-                                        <div class="sm-status status-running">运行中</div>
-                                    </div>
-                                    <div class="sm-kpis">
-                                        <div class="kpi-item"><strong>运行时长:</strong> 01:23:45</div>
-                                        <div class="kpi-item"><strong>告警总数:</strong> <span class="text-danger">12</span></div>
-                                        <div class="kpi-item"><strong>CPU负载:</strong> 25%</div>
-                                        <div class="kpi-item"><strong>内存负载:</strong> 48%</div>
-                                    </div>
+                <div class="content-body content-body-full">
+                    <div class="three-column-layout scenario-monitoring">
+                        <div class="component-palette left-monitoring-panel">
+                            <div class="palette-group">
+                                <p>场景控制</p>
+                                <div class="scenario-controls">
+                                    <button class="btn btn-primary full-width">▶️ 开始</button>
+                                    <button class="btn btn-secondary full-width">⏸️ 暂停</button>
+                                    <button class="btn btn-danger full-width">⏹️ 停止</button>
                                 </div>
-                                <div class="sm-topology-map">
-                                    <svg width="100%" height="100%" viewBox="0 0 800 500">
-                                        <defs>
-                                            <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
-                                                <feGaussianBlur stdDeviation="5" result="coloredBlur"></feGaussianBlur>
-                                                <feMerge>
-                                                    <feMergeNode in="coloredBlur"></feMergeNode>
-                                                    <feMergeNode in="SourceGraphic"></feMergeNode>
-                                                </feMerge>
-                                            </filter>
-                                        </defs>
-                                        
-                                        <!-- Nodes -->
-                                        <g transform="translate(50, 225)">
-                                            <rect x="0" y="0" width="100" height="50" rx="5" fill="#262626" stroke="#595959"></rect>
-                                            <text x="50" y="30" text-anchor="middle" class="node-label">💣 攻击源</text>
-                                        </g>
-                                        <g transform="translate(250, 225)" class="active-defense">
-                                            <rect x="0" y="0" width="100" height="50" rx="5" fill="#262626" stroke="#595959"></rect>
-                                            <text x="50" y="30" text-anchor="middle" class="node-label">🛡️ WAF</text>
-                                        </g>
-                                        <g transform="translate(450, 150)" class="compromised-node">
-                                            <rect x="0" y="0" width="120" height="50" rx="5" fill="#262626" stroke="#595959" filter="url(#glow-red)"></rect>
-                                            <text x="60" y="30" text-anchor="middle" class="node-label">🖥️ Web Server</text>
-                                        </g>
-                                        <g transform="translate(450, 300)">
-                                            <rect x="0" y="0" width="120" height="50" rx="5" fill="#262626" stroke="#595959"></rect>
-                                            <text x="60" y="30" text-anchor="middle" class="node-label">🗄️ File Server</text>
-                                        </g>
-                                         <g transform="translate(650, 150)">
-                                            <rect x="0" y="0" width="100" height="50" rx="5" fill="#262626" stroke="#595959"></rect>
-                                            <text x="50" y="30" text-anchor="middle" class="node-label">💾 DB Server</text>
-                                        </g>
-
-                                        <!-- Edges -->
-                                        <path d="M 150 250 H 250" stroke="#bfbfbf" stroke-width="2"></path>
-                                        <path d="M 350 250 C 400 250, 400 175, 450 175" stroke="#bfbfbf" stroke-width="2" fill="none"></path>
-                                        <path d="M 350 250 C 400 250, 400 325, 450 325" stroke="#bfbfbf" stroke-width="2" fill="none"></path>
-                                        <path d="M 570 175 H 650" stroke="#bfbfbf" stroke-width="2"></path>
-                                        
-                                        <!-- Attack Path Animation -->
-                                         <path d="M 570 175 H 650" fill="none" class="attack-line" style="animation-delay: 0.5s;"></path>
-                                    </svg>
+                            </div>
+                             <div class="palette-group">
+                                <p>场景状态</p>
+                                <div class="scenario-status-details">
+                                    <div class="status-item"><span>状态:</span> <span class="status-running">● 运行中</span></div>
+                                    <div class="status-item"><span>时长:</span> <span id="scenario-timer">00:15:42</span></div>
+                                    <div class="status-item"><span>健康度:</span> <span class="health-ok">95%</span></div>
+                                    <div class="status-item"><span>总节点:</span> <span>12</span></div>
+                                    <div class="status-item"><span>失陷节点:</span> <span class="compromised-count">1</span></div>
+                                </div>
+                            </div>
+                            <div class="palette-group">
+                                <p>AI Agent</p>
+                                <div class="agent-overview">
+                                   <div class="agent-info"><strong>红队 Agent:</strong> <span>执行中</span></div>
+                                   <div class="agent-info"><strong>蓝队 Agent:</strong> <span>待机</span></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="sm-sidebar">
-                            <div class="widget">
-                                <h4>实时事件流</h4>
-                                <ul class="events-list">
-                                    <li class="red">
-                                        <span class="time">10:35:12</span> 攻击源 (Kali) 对 Web Server 发起目录扫描。
-                                    </li>
-                                    <li class="blue">
-                                        <span class="time">10:35:18</span> WAF 拦截到异常请求，源IP: 10.1.1.5。
-                                    </li>
-                                    <li class="red">
-                                        <span class="time">10:36:02</span> 攻击源 (Kali) 发现登录页面 /login.php。
-                                    </li>
-                                    <li class="red">
-                                        <span class="time">10:37:31</span> 攻击源 (Kali) 对 Web Server 尝试SQL注入攻击。
-                                    </li>
-                                    <li class="red text-danger">
-                                        <span class="time">10:37:33</span> Web Server 数据库权限被获取。
-                                    </li>
-                                    <li class="blue">
-                                        <span class="time">10:38:00</span> IDS 检测到可疑数据库查询。
-                                    </li>
-                                </ul>
+                        <main class="canvas-wrapper">
+                            <div class="canvas" id="canvas">
+                               <svg width="100%" height="100%" viewBox="0 0 1600 900" style="background-color: #1a1a1a; --font-family: 'Segoe UI', 'Roboto', sans-serif;">
+                                    <defs>
+                                        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#8c8c8c"></path>
+                                        </marker>
+                                        <marker id="arrow-attack" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" class="arrow-attack-head"></path>
+                                        </marker>
+                                        <style>
+                                            .node text { font-family: var(--font-family); font-size: 14px; fill: #d9d9d9; pointer-events: none; }
+                                            .node .icon { font-size: 24px; }
+                                            .node .ip-text { font-size: 11px; fill: #888; }
+                                            .node-rect { transition: all 0.3s ease; }
+                                            .node-normal .node-rect { fill: #262626; stroke: #595959; }
+                                            .node-compromised .node-rect { fill: #5e1f1f; stroke: #ff4d4f; box-shadow: 0 0 15px #ff4d4f; }
+                                            .node-alert .node-rect { fill: #61471a; stroke: #ffc53d; }
+                                            .edge { stroke: #595959; stroke-width: 1.5px; fill: none; }
+                                            .edge-attack { stroke: #ff4d4f; stroke-width: 2.5px; stroke-dasharray: 8, 6; animation: dash 1s linear infinite; fill: none; }
+                                            .arrow-attack-head { fill: #ff4d4f; }
+                                            @keyframes dash { to { stroke-dashoffset: -28; } }
+                                            .zone { fill: rgba(24, 144, 255, 0.1); stroke: rgba(24, 144, 255, 0.4); stroke-width: 2px; stroke-dasharray: 8, 4; }
+                                            .zone-label { font-size: 18px; font-weight: bold; fill: #1890ff; text-anchor: middle; }
+                                            .data-flow { stroke-width: 1px; stroke: #40a9ff; opacity: 0.8; animation: flow 2s linear infinite; }
+                                            @keyframes flow { from { stroke-dashoffset: 20; } to { stroke-dashoffset: 0; } }
+                                        </style>
+                                    </defs>
+
+                                    <!-- ZONES -->
+                                    <rect x="250" y="20" width="1330" height="200" rx="15" class="zone" />
+                                    <text x="915" y="50" class="zone-label">DMZ (非军事区)</text>
+                                    
+                                    <rect x="250" y="250" width="1330" height="630" rx="15" class="zone" />
+                                    <text x="915" y="280" class="zone-label">Internal Corporate Network (内部网络)</text>
+
+                                    <!-- NODES -->
+                                    <g class="node node-normal" transform="translate(50, 400)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">☁️</tspan> Internet</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">203.0.113.0/24</text>
+                                    </g>
+                                    <g class="node node-normal" transform="translate(300, 400)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">🧱</tspan> Edge Firewall</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">FW-01</text>
+                                    </g>
+                                    <g class="node node-alert" transform="translate(600, 100)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">🌐</tspan> Web Server</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">10.1.1.10</text>
+                                    </g>
+                                    <g class="node node-normal" transform="translate(900, 100)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">✉️</tspan> Mail Server</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">10.1.1.20</text>
+                                    </g>
+                                    <g class="node node-normal" transform="translate(1200, 100)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">👤</tspan> VPN Gateway</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">10.1.1.30</text>
+                                    </g>
+                                    <g class="node node-normal" transform="translate(600, 400)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">🔄</tspan> Core Switch</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">CS-01</text>
+                                    </g>
+                                    <g class="node node-normal" transform="translate(900, 600)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">↔️</tspan> Office Switch</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">OS-01</text>
+                                    </g>
+                                    <g class="node node-normal" transform="translate(1200, 520)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">👨‍💻</tspan> Workstation A</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">192.168.10.101</text>
+                                    </g>
+                                    <g class="node node-normal" transform="translate(1200, 680)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">👩‍💻</tspan> Workstation B</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">192.168.10.102</text>
+                                    </g>
+                                    <g class="node node-normal" transform="translate(900, 320)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">🔀</tspan> DC Switch</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">DS-01</text>
+                                    </g>
+                                    <g class="node node-compromised" transform="translate(1200, 320)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">⚙️</tspan> App Server</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">172.16.1.10</text>
+                                    </g>
+                                    <g class="node node-normal" transform="translate(1400, 320)">
+                                        <rect class="node-rect" width="160" height="80" rx="8"></rect>
+                                        <text x="80" y="45" text-anchor="middle"><tspan class="icon">💾</tspan> Database</text>
+                                        <text x="80" y="65" text-anchor="middle" class="ip-text">172.16.1.100</text>
+                                    </g>
+                                    
+                                    <!-- EDGES & DATA FLOWS -->
+                                    <path class="edge" d="M 210 440 H 300" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 460 440 H 600" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 380 400 V 140 H 500" stroke-dasharray="5,5"></path>
+                                    <path class="edge" d="M 500 140 H 600" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 500 140 H 900" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 500 140 H 1200" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 680 400 V 360 H 900" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 680 480 V 640 H 900" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 1060 360 H 1200" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 1360 360 H 1400" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 1060 640 V 560 H 1200" marker-end="url(#arrow)"></path>
+                                    <path class="edge" d="M 1060 640 V 720 H 1200" marker-end="url(#arrow)"></path>
+                                    <path class="edge-attack" d="M 680 140 H 1280 V 320" marker-end="url(#arrow-attack)"></path>
+                                    <path class="data-flow" d="M 1360 360 H 1400" stroke-dasharray="5 5"></path>
+                                </svg>
                             </div>
+                        </main>
+                        <aside class="right-sidebar">
+                            <div class="panel-header">
+                                <h5 id="node-title">节点监控</h5>
+                                <span id="node-icon"></span>
+                            </div>
+                            <div class="node-details">
+                                <div class="detail-item"><label>设备名称:</label><span id="node-name">App Server</span></div>
+                                <div class="detail-item"><label>IP地址:</label><span id="node-ip">172.16.1.10</span></div>
+                                <div class="detail-item"><label>状态:</label><span id="node-status" class="status-compromised">已失陷</span></div>
+                                <div class="detail-item resource">
+                                    <label>CPU:</label>
+                                    <div class="mini-progress-bar"><div style="width: 88%; background-color: #dc3545;"></div></div>
+                                    <span>88%</span>
+                                </div>
+                                <div class="detail-item resource">
+                                    <label>内存:</label>
+                                    <div class="mini-progress-bar"><div style="width: 76%;"></div></div>
+                                    <span>76%</span>
+                                </div>
+                                <div class="detail-item"><label>网络入/出:</label><span>1.2MB/s / 3.4MB/s</span></div>
+                                <div class="detail-item"><label>所属区域:</label><span>内部网络</span></div>
+                            </div>
+                            <div class="panel-header">
+                                <h5>最新告警</h5>
+                            </div>
+                            <ul class="node-alarms">
+                                <li class="alarm-critical"><span class="alarm-time">10:45:12</span><span class="alarm-text">检测到提权尝试 (CVE-2023-1234)</span></li>
+                                <li class="alarm-high"><span class="alarm-time">10:42:05</span><span class="alarm-text">与可疑C2服务器建立连接</span></li>
+                                <li class="alarm-high"><span class="alarm-time">10:41:50</span><span class="alarm-text">检测到反向Shell连接</span></li>
+                                <li class="alarm-medium"><span class="alarm-time">10:39:23</span><span class="alarm-text">在/tmp目录下发现可疑ELF文件</span></li>
+                                <li class="alarm-low"><span class="alarm-time">10:38:10</span><span class="alarm-text">检测到内网横向扫描行为</span></li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="event-log-panel">
+                        <h4>实时事件流</h4>
+                        <div class="event-log-content">
+                            <div class="log-entry log-red"><span class="time">10:45:12</span> [红队] Agent 'Hunter' 在 App Server (172.16.1.10) 上使用漏洞 CVE-2023-1234 成功提权为 root。</div>
+                            <div class="log-entry log-blue"><span class="time">10:45:13</span> [蓝队] EDR 检测到 App Server 上的异常进程创建，已触发紧急告警。</div>
+                            <div class="log-entry log-red"><span class="time">10:42:05</span> [红队] Agent 'Pivoter' 通过 App Server 建立了到 C2 (198.51.100.23) 的加密隧道。</div>
+                            <div class="log-entry log-red"><span class="time">10:41:50</span> [红队] Agent 'Exploiter-2' 在 App Server 上成功执行了反向Shell。</div>
+                            <div class="log-entry log-blue"><span class="time">10:41:52</span> [蓝队] IDS 检测到来自 App Server 的异常出站连接。</div>
+                            <div class="log-entry log-red"><span class="time">10:39:23</span> [红队] Agent 'Scout' 在 Web Server (10.1.1.10) 上发现 'config.php' 文件，并成功获取数据库凭证。</div>
+                            <div class="log-entry log-blue"><span class="time">10:39:25</span> [蓝队] HIDS 在 Web Server 上检测到对敏感文件的异常读取。</div>
+                            <div class="log-entry log-red"><span class="time">10:35:18</span> [红队] Agent 'WebApp-Cracker' 利用 Log4Shell 漏洞 (CVE-2021-44228) 成功在 Web Server (10.1.1.10) 上执行了命令。</div>
+                            <div class="log-entry log-blue"><span class="time">10:35:20</span> [蓝队] WAF 记录到包含 JNDI 注入的恶意请求，已告警。</div>
+                            <div class="log-entry log-neutral"><span class="time">10:30:00</span> [系统] 场景 '企业内网综合渗透' 已成功启动。</div>
                         </div>
                     </div>
                 </div>

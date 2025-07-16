@@ -30,13 +30,9 @@
                     <li><a href="competition.html">⚔️ 攻防竞技</a></li>
                     <li><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
                     <li><a href="target_management.html">🕹️ 靶标管理</a></li>
-                    <li class="has-submenu">
-                        <a href="index.html">🌐 场景管理</a>
-                        <ul class="submenu">
-                            <li><a href="index.html">- 场景绘制</a></li>
-                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="scenario_management.html">🌐 场景管理</a></li>
+                    <li><a href="index.html">🎨 场景绘制</a></li>
+                    <li><a href="scenario_monitoring.html">📈 场景监控</a></li>
                     <li class="active"><a href="probe_management.html">📡 探针管理</a></li>
                     <li><a href="system_management.html">⚙️ 系统管理</a></li>
                     <li><a href="system_log.html">📄 系统日志</a></li>
@@ -72,9 +68,9 @@
                                     <thead>
                                         <tr>
                                             <th>探针ID</th>
-                                            <th>探针类型</th>
+                                            <th>类型</th>
                                             <th>关联目标</th>
-                                            <th>探针版本</th>
+                                            <th>版本</th>
                                             <th>上次心跳</th>
                                             <th>状态</th>
                                             <th>操作</th>
@@ -82,103 +78,137 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>host-probe-001a</td>
+                                            <td>HP-DC01-SRV001</td>
                                             <td>主机探针</td>
-                                            <td>192.168.10.15</td>
-                                            <td><span class="text-danger">v1.2.0</span></td>
-                                            <td>2024-05-21 10:38:10</td>
-                                            <td><span class="status status-running">在线</span></td>
-                                            <td class="action-buttons">
-                                                <button class="btn-action">策略</button>
-                                                <button class="btn-action">日志</button>
-                                                <button class="btn-action delete">删除</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>net-probe-005c</td>
-                                            <td>网络探针</td>
-                                            <td>10.10.0.0/16</td>
+                                            <td>app-server-01.prod.local</td>
                                             <td>v2.1.5</td>
-                                            <td>2024-05-21 10:38:12</td>
-                                            <td><span class="status status-running">在线</span></td>
-                                            <td class="action-buttons">
-                                                <button class="btn-action">策略</button>
-                                                <button class="btn-action">日志</button>
-                                                <button class="btn-action delete">删除</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>host-probe-023f</td>
-                                            <td>主机探针</td>
-                                            <td>192.168.12.30</td>
-                                            <td>v1.3.1</td>
-                                             <td>2024-05-21 10:25:01</td>
-                                            <td><span class="status status-stopped">离线</span></td>
-                                            <td class="action-buttons">
-                                                <button class="btn-action">策略</button>
-                                                <button class="btn-action">日志</button>
-                                                <button class="btn-action delete">删除</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>net-probe-011b</td>
-                                            <td>网络探针</td>
-                                            <td>172.16.0.0/12</td>
-                                            <td>v2.1.5</td>
-                                            <td>2024-05-21 10:39:01</td>
-                                            <td><span class="status status-running">在线</span></td>
-                                            <td class="action-buttons">
-                                                <button class="btn-action">策略</button>
-                                                <button class="btn-action">日志</button>
-                                                <button class="btn-action delete">删除</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>host-probe-045d</td>
-                                            <td>主机探针</td>
-                                            <td>ws-data-center.local</td>
-                                            <td>v1.3.1</td>
-                                            <td>2024-05-20 18:00:00</td>
-                                            <td><span class="status status-stopped">离线</span></td>
-                                            <td class="action-buttons">
-                                                <button class="btn-action">策略</button>
-                                                <button class="btn-action">日志</button>
-                                                <button class="btn-action delete">删除</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>host-probe-007e</td>
-                                            <td>主机探针</td>
-                                            <td>192.168.10.22</td>
-                                            <td>v1.3.0</td>
                                             <td>2024-05-21 10:39:05</td>
-                                            <td><span class="status status-error">异常</span></td>
-                                            <td class="action-buttons">
-                                                <button class="btn-action">策略</button>
-                                                <button class="btn-action">日志</button>
-                                                <button class="btn-action delete">删除</button>
-                                            </td>
+                                            <td><span class="status status-running">在线</span></td>
+                                            <td class="action-buttons"><button class="btn-action">策略</button><button class="btn-action">日志</button><button class="btn-action delete">删除</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>NP-CORP-FW-EXT</td>
+                                            <td>网络探针</td>
+                                            <td>10.0.0.1 (Corp Firewall)</td>
+                                            <td>v3.0.1</td>
+                                            <td>2024-05-21 10:39:10</td>
+                                            <td><span class="status status-running">在线</span></td>
+                                            <td class="action-buttons"><button class="btn-action">策略</button><button class="btn-action">日志</button><button class="btn-action delete">删除</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>HP-DMZ-WEB002</td>
+                                            <td>主机探针</td>
+                                            <td>dmz-web-02.example.com</td>
+                                            <td><span class="text-danger">v1.9.8</span></td>
+                                            <td>2024-05-21 10:38:50</td>
+                                            <td><span class="status status-running">在线 (版本过低)</span></td>
+                                            <td class="action-buttons"><button class="btn-action">升级</button><button class="btn-action">日志</button><button class="btn-action delete">删除</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>HP-OFFICE-PC089</td>
+                                            <td>主机探针</td>
+                                            <td>192.168.10.89</td>
+                                            <td>v2.1.5</td>
+                                            <td>2024-05-20 18:30:00</td>
+                                            <td><span class="status status-stopped">离线</span></td>
+                                            <td class="action-buttons"><button class="btn-action">策略</button><button class="btn-action">日志</button><button class="btn-action delete">删除</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>HP-DC02-DBM01</td>
+                                            <td>主机探针</td>
+                                            <td>db-master.prod.local</td>
+                                            <td>v2.1.5</td>
+                                            <td>2024-05-21 10:39:02</td>
+                                            <td><span class="status status-running">在线</span></td>
+                                            <td class="action-buttons"><button class="btn-action">策略</button><button class="btn-action">日志</button><button class="btn-action delete">删除</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>NP-DMZ-SEGMENT</td>
+                                            <td>网络探针</td>
+                                            <td>10.1.1.0/24</td>
+                                            <td>v3.0.1</td>
+                                            <td>2024-05-21 10:38:55</td>
+                                            <td><span class="status status-running">在线</span></td>
+                                            <td class="action-buttons"><button class="btn-action">策略</button><button class="btn-action">日志</button><button class="btn-action delete">删除</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>HP-DEV-K8S-NODE3</td>
+                                            <td>主机探针</td>
+                                            <td>172.16.30.103</td>
+                                            <td>v2.1.0</td>
+                                            <td>2024-05-21 08:00:15</td>
+                                            <td><span class="status status-error">异常 (心跳超时)</span></td>
+                                            <td class="action-buttons"><button class="btn-action">重启</button><button class="btn-action">日志</button><button class="btn-action delete">删除</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>HP-DC01-SRV002</td>
+                                            <td>主机探针</td>
+                                            <td>app-server-02.prod.local</td>
+                                            <td>v2.1.5</td>
+                                            <td>2024-05-21 10:39:04</td>
+                                            <td><span class="status status-running">在线</span></td>
+                                            <td class="action-buttons"><button class="btn-action">策略</button><button class="btn-action">日志</button><button class="btn-action delete">删除</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>HP-FIN-WS012</td>
+                                            <td>主机探针</td>
+                                            <td>192.168.20.12 (财务部)</td>
+                                            <td>v2.0.0</td>
+                                            <td>2024-05-21 10:30:00</td>
+                                            <td><span class="status status-upgrading">升级中...</span></td>
+                                            <td class="action-buttons"><button class="btn-action" disabled>策略</button><button class="btn-action">日志</button><button class="btn-action delete" disabled>删除</button></td>
+                                        </tr>
+                                         <tr>
+                                            <td>NP-GUEST-WIFI</td>
+                                            <td>网络探针</td>
+                                            <td>10.100.0.0/24</td>
+                                            <td>v2.5.0</td>
+                                            <td>2024-05-21 10:35:10</td>
+                                            <td><span class="status status-running">在线</span></td>
+                                            <td class="action-buttons"><button class="btn-action">策略</button><button class="btn-action">日志</button><button class="btn-action delete">删除</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="pagination-container" style="display: flex; justify-content: flex-end; align-items: center; padding: 15px 0; border-top: 1px solid #e8e8e8;">
+                                    <span style="font-size: 14px; margin-right: 15px;">第 1 页 / 共 9 页 (共 87 条)</span>
+                                    <div class="pagination">
+                                        <button class="btn" disabled>«</button>
+                                        <button class="btn btn-primary">1</button>
+                                        <button class="btn">2</button>
+                                        <button class="btn">3</button>
+                                        <button class="btn">...</button>
+                                        <button class="btn">9</button>
+                                        <button class="btn">»</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="it-sidebar">
-                            <div class="widget kpi-card">
+                            <div class="widget kpi-card" style="background-color: #e6f7ff; border-color: #91d5ff;">
                                 <h4>探针总数</h4>
-                                <div class="kpi-value">87</div>
+                                <div class="kpi-value" style="color: #096dd9;">87</div>
                             </div>
-                            <div class="widget kpi-card">
-                                <h4>在线数量</h4>
-                                <div class="kpi-value">82</div>
+                            <div class="widget kpi-card" style="background-color: #f6ffed; border-color: #b7eb8f;">
+                                <h4>在线</h4>
+                                <div class="kpi-value" style="color: #52c41a;">81</div>
                             </div>
-                            <div class="widget kpi-card">
-                                <h4>离线数量</h4>
-                                <div class="kpi-value">5</div>
+                            <div class="widget kpi-card" style="background-color: #fff1f0; border-color: #ffa39e;">
+                                <h4>离线</h4>
+                                <div class="kpi-value" style="color: #f5222d;">1</div>
                             </div>
-                            <div class="widget kpi-card">
-                                <h4>版本异常</h4>
-                                <div class="kpi-value">3</div>
+                            <div class="widget kpi-card" style="background-color: #fffbe6; border-color: #ffe58f;">
+                                <h4>异常</h4>
+                                <div class="kpi-value" style="color: #faad14;">2</div>
+                            </div>
+                             <div class="widget" style="margin-top: 20px;">
+                                <h4>最近事件</h4>
+                                <ul class="events-list" style="max-height: 400px; overflow-y: auto;">
+                                    <li><span class="time">10:30:00</span> [HP-FIN-WS012] 开始升级到 v2.1.5。</li>
+                                    <li><span class="time">08:00:15</span> [HP-DEV-K8S-NODE3] 心跳超时，标记为异常。</li>
+                                    <li><span class="time">07:55:01</span> [HP-DMZ-WEB002] 检测到过低版本 v1.9.8。</li>
+                                    <li><span class="time">昨天</span> [HP-OFFICE-PC089] 超过24小时未连接。</li>
+                                    <li><span class="time">昨天</span> 新注册探针 [NP-GUEST-WIFI]。</li>
+                                </ul>
                             </div>
                         </div>
                     </div>

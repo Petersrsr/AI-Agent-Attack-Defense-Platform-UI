@@ -30,13 +30,9 @@
                     <li class="has-submenu"><a href="competition.html">⚔️ 攻防竞技</a></li>
                     <li class="has-submenu"><a href="red_vs_blue.html">🛡️ 红蓝对抗</a></li>
                     <li class="has-submenu"><a href="target_management.html">🕹️ 靶标管理</a></li>
-                    <li class="has-submenu">
-                        <a href="index.html">🌐 场景管理</a>
-                        <ul class="submenu">
-                            <li><a href="index.html">- 场景绘制</a></li>
-                            <li><a href="scenario_monitoring.html">- 场景监控</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="scenario_management.html">🌐 场景管理</a></li>
+                    <li><a href="index.html">🎨 场景绘制</a></li>
+                    <li><a href="scenario_monitoring.html">📈 场景监控</a></li>
                     <li><a href="probe_management.html">📡 探针管理</a></li>
                     <li><a href="system_management.html">⚙️ 系统管理</a></li>
                     <li><a href="system_log.html">📄 系统日志</a></li>
@@ -51,117 +47,176 @@
                                 <p>选择一个靶场环境，开始你的黑客之旅。</p>
                             </div>
                             <div class="widget">
-                                <div class="toolbar">
-                                    <div class="filters">
-                                        <input type="text" placeholder="搜索场景名称..." class="search-input">
+                                <div class="toolbar" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                    <div class="filters" style="display: flex; gap: 10px;">
                                         <select class="filter-select">
-                                            <option>所有难度</option>
-                                            <option>入门</option>
-                                            <option>中级</option>
-                                            <option>高级</option>
+                                            <option>所有分类</option>
+                                            <option>Web</option>
+                                            <option>Pwn</option>
+                                            <option>Reverse</option>
+                                            <option>Crypto</option>
+                                            <option>Misc</option>
                                         </select>
                                         <select class="filter-select">
-                                            <option>所有标签</option>
-                                            <option>Web安全</option>
-                                            <option>系统安全</option>
-                                            <option>内网渗透</option>
+                                            <option>所有状态</option>
+                                            <option>已解决</option>
+                                            <option>未解决</option>
+                                        </select>
+                                        <input type="text" placeholder="搜索题目名称..." class="search-input">
+                                    </div>
+                                    <div class="sort-options" style="margin-left: auto; display: flex; gap: 10px; align-items: center;">
+                                        <label>排序:</label>
+                                        <select class="filter-select">
+                                            <option>默认</option>
+                                            <option>积分: 由高到低</option>
+                                            <option>积分: 由低到高</option>
                                         </select>
                                     </div>
                                 </div>
-                                <table class="data-table">
+                                <table class="data-table ctf-table">
                                     <thead>
                                         <tr>
-                                            <th>场景名称</th>
-                                            <th>技术标签</th>
-                                            <th>难度</th>
-                                            <th>状态</th>
-                                            <th>操作</th>
+                                            <th style="width: 15%;">分类</th>
+                                            <th>题目名称</th>
+                                            <th style="width: 10%;">积分</th>
+                                            <th style="width: 15%;">解决人数</th>
+                                            <th style="width: 10%;">状态</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>SQL注入-基础挑战</td>
-                                            <td><span class="tag tag-blue">Web安全</span><span class="tag tag-gray">SQL</span></td>
-                                            <td>入门</td>
-                                            <td><span class="status status-stopped">未开始</span></td>
-                                            <td><button class="btn btn-primary btn-sm">进入场景</button></td>
+                                        <tr class="solved">
+                                            <td><span class="tag tag-blue">Web</span></td>
+                                            <td><a href="#" class="challenge-title-link">[入门] SQL注入-登录绕过</a></td>
+                                            <td>50</td>
+                                            <td>98人</td>
+                                            <td><span class="status-solved">✅ 已解决</span></td>
                                         </tr>
                                         <tr>
-                                            <td>Struts2-S2-045 漏洞复现</td>
-                                            <td><span class="tag tag-blue">Web安全</span><span class="tag tag-red">漏洞复现</span></td>
-                                            <td>中级</td>
-                                            <td><span class="status status-running">运行中</span></td>
-                                            <td><button class="btn btn-primary btn-sm">进入场景</button></td>
+                                            <td><span class="tag tag-green">Pwn</span></td>
+                                            <td><a href="#" class="challenge-title-link">[入门] 栈溢出基础</a></td>
+                                            <td>100</td>
+                                            <td>72人</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td>"永恒之蓝"MS17-010复现</td>
-                                            <td><span class="tag tag-green">系统安全</span><span class="tag tag-red">漏洞复现</span></td>
-                                            <td>中级</td>
-                                             <td><span class="status status-stopped">未开始</span></td>
-                                            <td><button class="btn btn-primary btn-sm">进入场景</button></td>
+                                            <td><span class="tag tag-red">Reverse</span></td>
+                                            <td><a href="#" class="challenge-title-link">[简单] UPX脱壳</a></td>
+                                            <td>150</td>
+                                            <td>65人</td>
+                                            <td></td>
                                         </tr>
-                                         <tr>
-                                            <td>Linux权限提升基础</td>
-                                            <td><span class="tag tag-green">系统安全</span></td>
-                                            <td>入门</td>
-                                             <td><span class="status status-stopped">未开始</span></td>
-                                            <td><button class="btn btn-primary btn-sm">进入场景</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Metasploit入门与实践</td>
-                                            <td><span class="tag tag-purple">内网渗透</span></td>
-                                            <td>中级</td>
-                                            <td><span class="status status-stopped">未开始</span></td>
-                                            <td><button class="btn btn-primary btn-sm">进入场景</button></td>
+                                        <tr class="solved">
+                                            <td><span class="tag tag-purple">Crypto</span></td>
+                                            <td><a href="#" class="challenge-title-link">[入门] 凯撒密码</a></td>
+                                            <td>50</td>
+                                            <td>112人</td>
+                                            <td><span class="status-solved">✅ 已解决</span></td>
                                         </tr>
                                         <tr>
-                                            <td>Log4j2 漏洞深度剖析</td>
-                                            <td><span class="tag tag-blue">Web安全</span><span class="tag tag-red">漏洞复现</span></td>
-                                            <td>高级</td>
-                                            <td><span class="status status-stopped">未开始</span></td>
-                                            <td><button class="btn btn-primary btn-sm">进入场景</button></td>
+                                            <td><span class="tag tag-gray">Misc</span></td>
+                                            <td><a href="#" class="challenge-title-link">[入门] 图片里的秘密</a></td>
+                                            <td>50</td>
+                                            <td>91人</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td>中间人攻击实战</td>
-                                            <td><span class="tag tag-purple">内网渗透</span><span class="tag tag-gray">网络</span></td>
-                                            <td>高级</td>
-                                            <td><span class="status status-stopped">未开始</span></td>
-                                            <td><button class="btn btn-primary btn-sm">进入场景</button></td>
+                                            <td><span class="tag tag-blue">Web</span></td>
+                                            <td><a href="#" class="challenge-title-link">[中等] 文件上传漏洞</a></td>
+                                            <td>250</td>
+                                            <td>43人</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td>Windows域渗透</td>
-                                            <td><span class="tag tag-purple">内网渗透</span><span class="tag tag-green">系统安全</span></td>
-                                            <td>高级</td>
-                                            <td><span class="status status-stopped">未开始</span></td>
-                                            <td><button class="btn btn-primary btn-sm">进入场景</button></td>
+                                            <td><span class="tag tag-green">Pwn</span></td>
+                                            <td><a href="#" class="challenge-title-link">[中等] 格式化字符串漏洞</a></td>
+                                            <td>300</td>
+                                            <td>31人</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="solved">
+                                            <td><span class="tag tag-blue">Web</span></td>
+                                            <td><a href="#" class="challenge-title-link">[中等] XSS挑战</a></td>
+                                            <td>200</td>
+                                            <td>58人</td>
+                                            <td><span class="status-solved">✅ 已解决</span></td>
                                         </tr>
                                         <tr>
-                                            <td>XSS跨站脚本攻击大全</td>
-                                            <td><span class="tag tag-blue">Web安全</span></td>
-                                            <td>入门</td>
-                                            <td><span class="status status-stopped">未开始</span></td>
-                                            <td><button class="btn btn-primary btn-sm">进入场景</button></td>
+                                            <td><span class="tag tag-red">Reverse</span></td>
+                                            <td><a href="#" class="challenge-title-link">[困难] VM虚拟机逆向</a></td>
+                                            <td>500</td>
+                                            <td>19人</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="tag tag-purple">Crypto</span></td>
+                                            <td><a href="#" class="challenge-title-link">[困难] RSA解密</a></td>
+                                            <td>450</td>
+                                            <td>24人</td>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="pagination-container" style="display: flex; justify-content: flex-end; align-items: center; padding: 15px 0; border-top: 1px solid #e8e8e8;">
+                                    <span style="font-size: 14px; margin-right: 15px;">共 120 题</span>
+                                    <div class="pagination">
+                                        <button class="btn" disabled>«</button>
+                                        <button class="btn btn-primary">1</button>
+                                        <button class="btn">2</button>
+                                        <button class="btn">3</button>
+                                        <button class="btn">...</button>
+                                        <button class="btn">12</button>
+                                        <button class="btn">»</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="it-sidebar">
-                            <div class="widget kpi-card">
-                                <h4>场景总数</h4>
-                                <div class="kpi-value">42</div>
-                            </div>
-                            <div class="widget kpi-card">
-                                <h4>运行中</h4>
-                                <div class="kpi-value">5</div>
-                            </div>
-                            <div class="widget kpi-card">
-                                <h4>已完成</h4>
-                                <div class="kpi-value">18</div>
-                            </div>
-                            <div class="widget kpi-card">
-                                <h4>平均得分</h4>
-                                <div class="kpi-value">85.6</div>
+                            <div class="widget my-stats-widget">
+                                <h4>我的战绩</h4>
+                                <div class="stats-overview" style="text-align: center; margin: 20px 0;">
+                                    <div class="stat-item">
+                                        <div class="stat-value" style="font-size: 28px; font-weight: bold; color: #096dd9;">3,250</div>
+                                        <div class="stat-label" style="font-size: 14px; color: #888;">总积分</div>
+                                    </div>
+                                    <div class="stat-item" style="margin-top: 15px;">
+                                        <div class="stat-value" style="font-size: 20px;"># 521</div>
+                                        <div class="stat-label" style="font-size: 12px; color: #888;">全站排名</div>
+                                    </div>
+                                </div>
+                                <div class="progress-info" style="margin-bottom: 20px;">
+                                    <span>解题进度: 18 / 120</span>
+                                    <div class="progress-bar" style="background-color: #e8e8e8; border-radius: 4px; height: 10px; overflow: hidden; margin-top: 5px;">
+                                        <div class="progress" style="width: 15%; height: 100%; background-color: #52c41a;"></div>
+                                    </div>
+                                </div>
+                                <div class="radar-chart-container">
+                                    <h5 style="text-align: center; margin-bottom: 15px;">能力分布雷达图</h5>
+                                    <div class="chart-placeholder" style="position: relative; height: 250px;">
+                                        <!-- A simplified SVG radar chart -->
+                                        <svg width="100%" height="100%" viewBox="0 0 300 300">
+                                            <g transform="translate(150,150)">
+                                                <!-- Grid lines -->
+                                                <g stroke="#e0e0e0" stroke-width="1">
+                                                    <circle r="30"></circle>
+                                                    <circle r="60"></circle>
+                                                    <circle r="90"></circle>
+                                                    <circle r="120"></circle>
+                                                </g>
+                                                <!-- Axes and Labels -->
+                                                <g font-size="12" fill="#555">
+                                                    <line x1="0" y1="0" x2="0" y2="-120" stroke="#e0e0e0"></line><text x="0" y="-125" text-anchor="middle">Web</text>
+                                                    <line x1="0" y1="0" x2="104" y2="-60" stroke="#e0e0e0"></line><text x="110" y="-60" text-anchor="start">Pwn</text>
+                                                    <line x1="0" y1="0" x2="104" y2="60" stroke="#e0e0e0"></line><text x="110" y="65" text-anchor="start">Reverse</text>
+                                                    <line x1="0" y1="0" x2="0" y2="120" stroke="#e0e0e0"></line><text x="0" y="130" text-anchor="middle">Misc</text>
+                                                    <line x1="0" y1="0" x2="-104" y2="60" stroke="#e0e0e0"></line><text x="-110" y="65" text-anchor="end">Crypto</text>
+                                                    <line x1="0" y1="0" x2="-104" y2="-60" stroke="#e0e0e0"></line><text x="-110" y="-60" text-anchor="end">Mobile</text>
+                                                </g>
+                                                <!-- Data Polygon -->
+                                                <polygon points="0,-108 95.26,-45 78,52.5 0,30 -62.4,45 -83.16,-54" fill="rgba(9, 109, 217, 0.4)" stroke="#096dd9" stroke-width="2"></polygon>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
