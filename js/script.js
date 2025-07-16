@@ -138,3 +138,227 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 }); 
+
+
+// =================================================================================
+// AI Chat Modal Logic for scenario_management.html
+// =================================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if we are on the scenario management page and the modal exists
+    const createScenarioBtn = document.getElementById('create-scenario-btn');
+    const aiChatModal = document.getElementById('ai-chat-modal');
+    
+    if (createScenarioBtn && aiChatModal) {
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const sendChatBtn = document.getElementById('send-chat-btn');
+        const createFromAiBtn = document.getElementById('create-from-ai-btn');
+        const chatInput = document.getElementById('chat-input');
+        const chatContainer = document.getElementById('chat-container');
+        const apiKeyInput = document.getElementById('api-key-input');
+        const scenarioTableBody = document.querySelector('.data-table tbody');
+
+        let messages = [
+            {
+                role: 'system',
+                content: 'You are an expert in cybersecurity attack and defense scenarios. Your goal is to help users design a competition scenario based on their description. Ask for clarification if needed, and finally, provide a structured summary of the scenario, including objectives, network topology, key vulnerabilities, and winning conditions.'
+            }
+        ];
+
+        const openModal = () => aiChatModal.style.display = 'flex';
+        const closeModal = () => aiChatModal.style.display = 'none';
+
+        const addMessageToChat = (role, content, isLoading = false) => {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message', role);
+            if (isLoading) {
+                messageElement.classList.add('loading');
+                messageElement.textContent = content;
+            } else {
+                messageElement.innerHTML = `<p>${content.replace(/\n/g, '<br>')}</p>`;
+            }
+            chatContainer.appendChild(messageElement);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            return messageElement;
+        };
+
+        const handleSendChat = async () => {
+            const userInput = chatInput.value.trim();
+            const apiKey = apiKeyInput.value.trim();
+
+            if (!userInput) return;
+
+            if (!apiKey) {
+                alert('请输入您的 DeepSeek API Key。');
+                apiKeyInput.focus();
+                return;
+            }
+
+            // Add user message to UI and history
+            addMessageToChat('user', userInput);
+            messages.push({ role: 'user', content: userInput });
+            chatInput.value = '';
+            chatInput.disabled = true;
+            sendChatBtn.disabled = true;
+
+            // Add loading indicator
+            const loadingIndicator = addMessageToChat('assistant', 'AI 正在思考中...', true);
+
+            try {
+                const response = await fetch('https://api.deepseek.com/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek-chat',
+                        messages: messages,
+                        stream: false
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(`API Error: ${response.status} ${response.statusText}. Details: ${JSON.stringify(errorData)}`);
+                }
+
+                const data = await response.json();
+                const assistantReply = data.choices[0].message.content;
+
+                // Remove loading indicator and show AI response
+                loadingIndicator.remove();
+                addMessageToChat('assistant', assistantReply);
+
+                // Add AI response to history
+                messages.push({ role: 'assistant', content: assistantReply });
+
+                // Show the "Create from AI" button
+                createFromAiBtn.style.display = 'inline-block';
+
+            } catch (error) {
+                loadingIndicator.remove();
+                addMessageToChat('assistant', `抱歉，调用API时发生错误: ${error.message}`);
+                console.error("API Call Failed:", error);
+            } finally {
+                chatInput.disabled = false;
+                sendChatBtn.disabled = false;
+                chatInput.focus();
+            }
+        };
+
+        const handleCreateFromAI = () => {
+            const lastMessage = messages[messages.length - 1];
+            if (!lastMessage || lastMessage.role !== 'assistant') {
+                alert('没有可用的AI回复来创建场景。');
+                return;
+            }
+
+            // Simple parsing: Try to find a line that looks like a title.
+            // This can be improved with more structured AI output.
+            const lines = lastMessage.content.split('\n');
+            let scenarioName = lines.find(line => line.includes('场景名称') || line.includes('名称：')) || lines[0];
+            scenarioName = scenarioName.replace(/场景名称[:：]/, '').trim();
+
+            const creator = 'AI Assistant';
+            const now = new Date();
+            const timestamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${scenarioName}</td>
+                <td>${creator}</td>
+                <td>${timestamp}</td>
+                <td>${timestamp}</td>
+                <td><span class="status status-draft">草稿</span></td>
+                <td><a href="#" class="action-link">编辑</a> <a href="#" class="action-link action-danger">删除</a></td>
+            `;
+
+            scenarioTableBody.insertBefore(newRow, scenarioTableBody.firstChild);
+
+            closeModal();
+            // Reset for next time
+            createFromAiBtn.style.display = 'none';
+        };
+
+        createScenarioBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent any default button or link behavior
+            openModal();
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === aiChatModal) {
+                closeModal();
+            }
+        });
+
+        sendChatBtn.addEventListener('click', handleSendChat);
+        createFromAiBtn.addEventListener('click', handleCreateFromAI);
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendChat();
+            }
+        });
+    }
+}); 
+
+
+// =================================================================================
+// Create Target Modal Logic for target_management.html
+// =================================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const createTargetBtn = document.getElementById('create-target-btn');
+    const createTargetModal = document.getElementById('create-target-modal');
+
+    if (createTargetBtn && createTargetModal) {
+        const closeModalBtn = document.getElementById('close-create-target-modal-btn');
+        const createTargetForm = document.getElementById('create-target-form');
+        const targetTableBody = document.querySelector('.data-table tbody');
+
+        const openModal = () => createTargetModal.style.display = 'flex';
+        const closeModal = () => {
+            createTargetModal.style.display = 'none';
+            createTargetForm.reset();
+        };
+
+        createTargetBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === createTargetModal) {
+                closeModal();
+            }
+        });
+
+        createTargetForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('target-name').value;
+            const ip = document.getElementById('target-ip').value;
+            const os = document.getElementById('target-os').value;
+            const vulns = document.getElementById('target-vulns').value || '-';
+            
+            const now = new Date();
+            const timestamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${ip}</td>
+                <td>${os}</td>
+                <td>${vulns}</td>
+                <td><span class="status-dot offline"></span> 离线</td>
+                <td>${timestamp}</td>
+                <td class="action-buttons">
+                    <button class="btn-action">配置</button>
+                    <button class="btn-action start">启动</button>
+                    <button class="btn-action delete">删除</button>
+                </td>
+            `;
+
+            targetTableBody.insertBefore(newRow, targetTableBody.firstChild);
+
+            closeModal();
+        });
+    }
+}); 

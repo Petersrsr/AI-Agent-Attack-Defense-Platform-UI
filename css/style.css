@@ -145,11 +145,20 @@ body, html {
     cursor: pointer;
 }
 
+.btn:hover {
+    opacity: 0.9;
+}
+
 .btn-primary {
-    background-color: #096dd9;
-    color: #fff;
-    border-color: #096dd9;
-    margin-left: 8px;
+    background-color: #1890ff;
+    color: white;
+    border-color: #1890ff;
+}
+
+.btn-success {
+    background-color: #52c41a;
+    color: white;
+    border-color: #52c41a;
 }
 
 .btn-primary:hover {
@@ -2112,3 +2121,190 @@ body, html {
 .log-red { color: #ff7875; }
 .log-blue { color: #69c0ff; }
 .log-neutral { color: #d9d9d9; }
+
+/* AI Chat Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    width: 90%;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.modal-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+.modal-body {
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.api-key-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.api-key-section label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.api-key-section input {
+    padding: 8px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.api-key-section small {
+    font-size: 12px;
+    color: #888;
+}
+
+.chat-container {
+    flex-grow: 1;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chat-message {
+    padding: 10px 14px;
+    border-radius: 10px;
+    max-width: 80%;
+    line-height: 1.5;
+}
+
+.chat-message.user {
+    background-color: #1890ff;
+    color: white;
+    align-self: flex-end;
+    border-top-right-radius: 2px;
+}
+
+.chat-message.assistant {
+    background-color: #e9e9eb;
+    color: #333;
+    align-self: flex-start;
+    border-top-left-radius: 2px;
+}
+
+.chat-message.loading {
+    background-color: #e9e9eb;
+    color: #888;
+    align-self: flex-start;
+    border-top-left-radius: 2px;
+    font-style: italic;
+}
+
+
+.chat-input-section {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-section textarea {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    resize: none;
+    height: 60px;
+    font-family: inherit;
+}
+
+.chat-input-section .btn-primary {
+    height: 60px;
+    align-self: flex-end;
+}
+
+/* General Modal Form Improvements */
+.modal-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    padding: 10px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    outline: none;
+}
+
+.form-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-actions .btn {
+    padding: 10px 20px;
+    font-size: 15px;
+}
